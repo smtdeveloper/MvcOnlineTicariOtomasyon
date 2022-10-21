@@ -88,6 +88,22 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
 
 
+        public ActionResult ChangeStatusCategory(int id)
+        {
+            var blogValue = c.Categories.Find(id);
+
+            if (blogValue.IsDelete)
+            {
+                blogValue.IsDelete = false;
+            }
+            else
+            {
+                blogValue.IsDelete = true;
+            }
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
     }
 }

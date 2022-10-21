@@ -24,27 +24,28 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <th scope="row">@item.CategoryID</th>
-                <td>@item.CategoryName</td>
-                <td>
+        <tr>
+            <th scope="row">@item.CategoryID</th>
+            <td>@item.CategoryName</td>
+            <td>
 
-                    @if (item.IsDelete)
-                    {
-                        <a href="~/Blog/ChangeStatusBlog/@item.CategoryID" id="Durum_@item.CategoryID" class="btn btn-success">Aktif Yap</a>
-                    }
-                    else
-                    {
-                        <a href="~/Blog/ChangeStatusBlog/@item.CategoryID" id="Durum_@item.CategoryID" class="btn btn-secondary">Pasif Yap</a>
+                @if (item.IsDelete)
+                {
+                    <a href="/Category/ChangeStatusCategory/@item.CategoryID" id="Durum_@item.CategoryID" class="btn btn-success">Aktif Yap</a>
+                }
+                else
+                {
+                    <a href="/Category/ChangeStatusCategory/@item.CategoryID" id="Durum_@item.CategoryID" class="btn btn-secondary">Pasif Yap</a>
 
 
-                    }
+                }
 
-                </td>
-                <td> <a href="/Category/CategoryUpdate/@item.CategoryID" class="btn btn-warning"> Güncelle </a> </td>
-                <td><button class="btn btn-danger" onclick="deleteBlog(@item.CategoryID)"> Sil </button></td>
+            </td>
+           
+            <td> <a href="/Category/CategoryUpdate/@item.CategoryID" class="btn btn-warning"> Güncelle </a> </td>
+            <td><button class="btn btn-danger" onclick="deleteBlog(@item.CategoryID)"> Sil </button></td>
 
-            </tr>
+        </tr>
         }
 
     </tbody>
