@@ -1,0 +1,87 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities
+@model List<Category>
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<a href="/Category/CategoryAdd" class="btn btn-primary p-3 m-4 text-right"> Yeni  Kategori Ekle </a>
+
+<table class="table table-hover mt-4">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Aktif / Pasif Yap</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col"> Sil</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.CategoryID</th>
+                <td>@item.CategoryName</td>
+                <td>
+
+                    @if (item.IsDelete)
+                    {
+                        <a href="~/Blog/ChangeStatusBlog/@item.CategoryID" id="Durum_@item.CategoryID" class="btn btn-success">Aktif Yap</a>
+                    }
+                    else
+                    {
+                        <a href="~/Blog/ChangeStatusBlog/@item.CategoryID" id="Durum_@item.CategoryID" class="btn btn-secondary">Pasif Yap</a>
+
+
+                    }
+
+                </td>
+                <td> <a href="/Category/CategoryUpdate/@item.CategoryID" class="btn btn-warning"> Güncelle </a> </td>
+                <td><button class="btn btn-danger" onclick="deleteBlog(@item.CategoryID)"> Sil </button></td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function deleteBlog(id) {
+        console.log(id)
+        Swal.fire({
+            title: 'Emin misiniz !',
+            text: "Kategoriyi silmek istediğinize emin misiniz ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Evet, SİL',
+            cancelButtonText: "Vazgeç",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "post",
+                    url: "/Category/CategoryDelete/" + id,
+                    success: function (func) {
+                        Swal.fire(
+                            'SİLİNDİ ! ',
+                            'Mesaj başarılı bir şekilde silindi.',
+                            'success'
+                        )
+                        setTimeout('', 3000);
+                        location.reload();
+                    }
+                }
+                )
+            }
+        })
+    }
+</script>

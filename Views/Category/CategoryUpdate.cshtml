@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Category
+
+@{
+    ViewBag.Title = "CategoryUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2 class="text-center"> Kategori Güncelle  </h2>
+<br />
+@using (Html.BeginForm("CategoryUpdated", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        @Html.Label("Kategori Başlığını Güncelle")
+
+                        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+                        @Html.HiddenFor(x => x.IsDelete)
+                        @Html.HiddenFor(x => x.CategoryID, new { @class = "form-control" })
+                    </th>
+                    <th scope="col"> <button class="btn btn-warning">Güncelle</button></th>
+                    <th scope="col"><a href="/Category/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+}
+
+
+
+
