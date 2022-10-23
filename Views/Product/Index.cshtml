@@ -1,0 +1,46 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities
+@model List<Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-center mt-4" > # SMT Ürünleri # </h1>
+
+<table class="table table-hover m-2">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Marka</th>
+            <th scope="col">Stok</th>
+            <th scope="col">Alıs Fiyat</th>
+            <th scope="col">Satış Fiyat</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Görsel</th>
+            <th scope="col"> Güncelle </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th scope="row">@item.ProductID</th>
+            <td>@item.ProductName</td>
+            <td>@item.Brand</td>
+            <td>@item.Stok</td>
+            <td>@item.BuyingPrice</td>
+            <td>@item.SalePrice</td>
+            <td>@item.Category.CategoryName</td>
+            <td>@item.ImgUrl</td>
+            <td> <a href="/Product/ProductUpdate/@item.ProductID" class="btn btn-warning"> Güncelle </a> </td>
+
+
+        </tr>
+        }
+
+
+</table>

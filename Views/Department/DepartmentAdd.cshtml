@@ -1,0 +1,33 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Department
+
+@{
+    ViewBag.Title = "DepartmentAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h1 class="text-center">Kategori Ekle</h1>
+<br />
+
+@using (Html.BeginForm("DepartmentAdd", "Department", FormMethod.Post))
+{
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.Label("Departman Başlığını Giriniz")
+                    @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+                </th>
+                <th scope="col"> <button class="btn btn-success">Ekle</button> </th>
+                <th scope="col"><a href="/Department/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+
+            </tr>
+        </thead>
+    </table>
+
+  
+
+
+}
+

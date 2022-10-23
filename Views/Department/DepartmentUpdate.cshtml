@@ -1,0 +1,38 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Department
+    
+
+@{
+    ViewBag.Title = "DepartmentUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 class="text-center"> Departman Güncelle  </h2>
+<br />
+@using (Html.BeginForm("DepartmentUpdated", "Department", FormMethod.Post))
+{
+    <div class="form-group">
+
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        @Html.Label("Kategori Başlığını Güncelle")
+
+                        @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+                        @Html.HiddenFor(x => x.IsDelete)
+                        @Html.HiddenFor(x => x.DepartmentID, new { @class = "form-control" })
+                    </th>
+                    <th scope="col"> <button class="btn btn-warning">Güncelle</button></th>
+                    <th scope="col"><a href="/Department/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+}
+
+
+
+

@@ -1,6 +1,5 @@
 ﻿@using MvcOnlineTicariOtomasyon.Models.Entities
-@model List<Category>
-
+@model List<Department>
 
 
 @{
@@ -8,9 +7,10 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1 class="text-center" > SMT Ticari Kategoriler </h1>
 
-<a href="/Category/CategoryAdd" class="btn btn-primary p-3 m-4 text-right"> Yeni  Kategori Ekle </a>
+<h1 class="text-center"> SMT Ticari Departmanlar</h1>
+
+<a href="/Department/DepartmentAdd" class="btn btn-primary p-3 m-4 text-right"> Yeni  Departman Ekle </a>
 
 
 
@@ -20,35 +20,36 @@
     {
         <div class="card l-bg-cherry col-lg-5 m-4">
             <div class="card-statistic-3 p-4">
-                <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i> Kategori ID :   @item.CategoryID  </div>
+                <div class="card-icon card-icon-large"><i class="fas fa-university"></i> Departman ID :   @item.DepartmentID  </div>
                 <div class="mb-4">
-                    <h5 class="card-title mb-0">@item.CategoryName</h5>
+                    <h5 class="card-title mb-0">@item.DepartmentName</h5>
                 </div>
                 <div class="row align-items-center mb-2 d-flex">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center mb-0">
                             @if (item.IsDelete)
                             {
-                                <a href="/Category/ChangeStatusCategory/@item.CategoryID" id="Durum_@item.CategoryID" class="btn btn-success">Aktif Yap</a>
+                                <a href="/Department/ChangeStatusDepartment/@item.DepartmentID" id="Durum_@item.DepartmentID" class="btn btn-success">Aktif Yap</a>
                             }
                             else
                             {
-                                <a href="/Category/ChangeStatusCategory/@item.CategoryID" id="Durum_@item.CategoryID" class="btn btn-secondary">Pasif Yap</a>
+                                <a href="/Department/ChangeStatusDepartment/@item.DepartmentID" id="Durum_@item.DepartmentID" class="btn btn-secondary">Pasif Yap</a>
 
 
                             }
                         </h2>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="/Category/CategoryUpdate/@item.CategoryID" class="btn btn-warning"> Güncelle </a>
-                        <button class="btn btn-danger" onclick="deleteBlog(@item.CategoryID)"> Sil </button>
+                        <a href="/Department/DepartmentUpdate/@item.DepartmentID" class="btn btn-warning"> Güncelle </a>
+                        <a href="/Department/DepartmentUpdate/@item.DepartmentID" class="btn btn-outline-primary"> Detay </a>
+                       
                     </div>
                 </div>
-               
+
             </div>
         </div>
     }
-    </div>
+</div>
 
 
 

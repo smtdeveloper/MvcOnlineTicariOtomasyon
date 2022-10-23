@@ -1,0 +1,78 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Product
+
+@{
+    ViewBag.Title = "ProductAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-center"># Ürün Ekle #</h1>
+<br />
+
+@using (Html.BeginForm("ProductAdd", "Product", FormMethod.Post))
+{
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col"><a href="/Product/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+            </tr>
+            <tr>
+                <th scope="col">
+                    @Html.HiddenFor(x => x.ProductID, new { @class = "form-control" })
+
+                    @Html.Label("Ürün Başlığını Giriniz")
+                    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+                    @Html.Label("Marka Başlığını Giriniz")
+                    @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
+                </th>
+
+                <th scope="col">
+
+
+                    @Html.Label("Stok Adetini Giriniz")
+                    @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+                </th>
+
+            </tr>
+
+            <tr>
+
+                <th scope="col">
+                    @Html.Label("Aliş fiyatını Giriniz")
+                    @Html.TextBoxFor(x => x.BuyingPrice, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+                    @Html.Label("Satış  Fiyatını Giriniz")
+                    @Html.TextBoxFor(x => x.SalePrice, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+                    @Html.Label("Görsel Yolunu Giriniz")
+                    @Html.TextBoxFor(x => x.ImgUrl  , new { @class = "form-control" })
+                </th>
+            </tr>
+
+            <tr>
+                <th scope="col">
+                    @Html.Label("Kategori")
+                    @*@Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })*@
+                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>) ViewBag.value, new { @class = "form-control" })
+                </th>
+                <th>
+                    @Html.Label("Aktif ")
+                    @Html.CheckBoxFor(x => x.Status, new { @class = "form-control" })
+                </th>
+                <th scope="col"> <button class="btn btn-success">Kaydet</button> </th>
+            </tr>
+
+            <tr>
+               
+            </tr>
+        </thead>
+    </table>
+
+
+
+}
+

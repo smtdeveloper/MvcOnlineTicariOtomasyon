@@ -11,6 +11,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         [Key]
         public int DepartmentID { get; set; }
         public string DepartmentName { get; set; }
+        public bool IsDelete { get; set; }
 
         public ICollection<Employee> Employees { get; set; }
     }
