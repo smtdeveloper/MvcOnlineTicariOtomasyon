@@ -5,8 +5,9 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1 class="text-center"># Ürün Ekle #</h1>
-<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Yeni Ürün     </li>
+</ol>
 
 @using (Html.BeginForm("ProductAdd", "Product", FormMethod.Post))
 {

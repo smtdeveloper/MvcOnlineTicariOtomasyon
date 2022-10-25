@@ -15,9 +15,13 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         public int UnitPrice { get; set; }
         public int TotalPrice { get; set; }
 
-        public Product Product { get; set; }
-        public Concubine Concubine{ get; set; }
-        public Employee Employee { get; set; }
+        public int ProductID { get; set; }
+        public int ConcubineID { get; set; }
+        public int EmployeeID { get; set; }
+
+        public virtual Product Product { get; set; }
+        public virtual Concubine Concubine{ get; set; }
+        public virtual Employee Employee { get; set; }
 
     }
 }

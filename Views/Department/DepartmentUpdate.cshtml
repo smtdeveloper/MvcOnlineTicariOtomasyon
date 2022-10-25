@@ -1,13 +1,16 @@
 ﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Department
-    
+
 
 @{
     ViewBag.Title = "DepartmentUpdate";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<br />
-<h2 class="text-center"> Departman Güncelle  </h2>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman /  Departman Güncelle     </li>
+</ol>
+
 <br />
 @using (Html.BeginForm("DepartmentUpdated", "Department", FormMethod.Post))
 {

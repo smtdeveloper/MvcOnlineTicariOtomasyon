@@ -7,10 +7,11 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman    </li>
+</ol>
 
-<h1 class="text-center"> SMT Ticari Departmanlar</h1>
-
-<a href="/Department/DepartmentAdd" class="btn btn-primary p-3 m-4 text-right"> Yeni  Departman Ekle </a>
+<a href="/Department/DepartmentAdd" class="btn btn-primary p-3 m-4 text-right"> <h6> Yeni  Departman Ekle </h6>  </a>
 
 
 
@@ -26,7 +27,11 @@
                 </div>
                 <div class="row align-items-center mb-2 d-flex">
                     <div class="col-8">
-                        <h2 class="d-flex align-items-center mb-0">
+                        <a href="/Department/DepartmentDetay/@item.DepartmentID" class="btn btn-outline-primary"> Detay </a>
+                    </div>
+                    <div class="col-4 text-right">
+                        <a href="/Department/DepartmentUpdate/@item.DepartmentID" class="btn btn-warning"> Güncelle </a>
+                        
                             @if (item.IsDelete)
                             {
                                 <a href="/Department/ChangeStatusDepartment/@item.DepartmentID" id="Durum_@item.DepartmentID" class="btn btn-success">Aktif Yap</a>
@@ -37,12 +42,9 @@
 
 
                             }
-                        </h2>
-                    </div>
-                    <div class="col-4 text-right">
-                        <a href="/Department/DepartmentUpdate/@item.DepartmentID" class="btn btn-warning"> Güncelle </a>
-                        <a href="/Department/DepartmentUpdate/@item.DepartmentID" class="btn btn-outline-primary"> Detay </a>
                        
+                       
+
                     </div>
                 </div>
 

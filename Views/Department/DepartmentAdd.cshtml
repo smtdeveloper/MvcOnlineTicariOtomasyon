@@ -4,9 +4,10 @@
     ViewBag.Title = "DepartmentAdd";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman / Yeni Departman     </li>
+</ol>
 
-
-<h1 class="text-center">Kategori Ekle</h1>
 <br />
 
 @using (Html.BeginForm("DepartmentAdd", "Department", FormMethod.Post))

@@ -60,6 +60,28 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
 
+        public ActionResult DepartmentDetay(int id)
+        {
+            var values = c.Employees.Where(x => x.DepartmentId == id).ToList();
+            var value = c.Departments.Where(x => x.DepartmentID == id).Select(y => y.DepartmentName).FirstOrDefault();
+            ViewBag.name = value;
+
+            return View(values);
+
+        }
+
+
+        public ActionResult EmployeeSales(int id)
+        {
+
+            var values = c.salesMoves.Where(x => x.EmployeeID == id).ToList();
+            var employee = c.Employees.Where(x => x.EmployeeID == id)
+                .Select(y => y.EmployeeFirstName + " " + y.EmployeeLastName).FirstOrDefault();
+
+            ViewBag.EmployeeName = employee;
+            return View(values);
+
+        }
 
         public ActionResult DepartmentUpdate(int id)
         {
@@ -89,6 +111,22 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult ChangeStatusDepartment(int id)
         {
             var value = c.Departments.Find(id);
+
+            if (value.IsDelete)
+            {
+                value.IsDelete = false;
+            }
+            else
+            {
+                value.IsDelete = true;
+            }
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ChangeStatusEmployee(int employeeID)
+        {
+            var value = c.Employees.Find(employeeID);
 
             if (value.IsDelete)
             {

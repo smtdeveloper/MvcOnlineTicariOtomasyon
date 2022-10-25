@@ -4,8 +4,9 @@
     ViewBag.Title = "CategoryUpdate";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<br />
-<h2 class="text-center"> Kategori Güncelle  </h2>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Kategori  / Kategori Güncelle  </li>
+</ol>
 <br />
 @using (Html.BeginForm("CategoryUpdated", "Category", FormMethod.Post))
 {

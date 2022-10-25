@@ -13,9 +13,12 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         public string EmployeeFirstName { get; set; }
         public string EmployeeLastName { get; set; }
         public string EmployeeImg { get; set; }
+        public bool IsDelete { get; set; }
 
         public ICollection<SalesMove> SalesMoves { get; set; }
-        public Department Department { get; set; }
+
+        public int DepartmentId { get; set; }
+        public virtual Department Department { get; set; }
 
     }
 }

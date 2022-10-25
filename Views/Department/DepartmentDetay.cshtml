@@ -1,0 +1,61 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities
+@model List<Employee>
+
+
+@{
+    ViewBag.Title = "DepartmentDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman / @ViewBag.name</li>
+</ol>
+
+<a href="/Department/Index" class="btn btn-primary m-4"> <h5> Listeye Dön </h5>  </a>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+
+        <div class="card l-bg-cherry col-lg-3 m-4">
+            <div class="card-statistic-3 p-4">
+                <h5 class="card-title mb-0 text-right "> @item.EmployeeImg </h5>
+                <div class="card-icon card-icon-large"><i class="fas fa-user"></i> Pesonel ID :  @item.EmployeeID  </div>
+                <div class="card-icon card-icon-large"><i class="fas fa-university"></i>   <b>  @item.Department.DepartmentName</b>   </div>
+                <div class="mb-4">
+                    <h5 class="card-title mb-0">@item.EmployeeFirstName  @item.EmployeeLastName</h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                    <div class="col-8">
+                        <a href="/Department/EmployeeSales/@item.EmployeeID" id="Durum_1" class="btn btn-outline-primary"> Satışlar </a>
+                    </div>
+                    <div class="col-4 text-right">
+
+                        <h2 class="d-flex align-items-center mb-0">
+                            @*@if (item.IsDelete)
+                                {
+                                    <a href="/Department/ChangeStatusEmployee/@item.EmployeeID" id="Durum_@item.EmployeeID" class="btn btn-success">Aktif Yap</a>
+                                }
+                                else
+                                {
+                                    <a href="/Department/ChangeStatusEmployee/@item.EmployeeID" id="Durum_@item.EmployeeID" class="btn btn-secondary">Pasif Yap</a>
+
+
+                                }*@
+
+                            @if (item.IsDelete)
+                            {
+                                <h5 class="alert-secondary text-center" > Pasif </h5>
+                            }
+                            else
+                            {
+                                <h5 class="alert-success text-center"> Aktif </h5>
+                            }
+                        </h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
