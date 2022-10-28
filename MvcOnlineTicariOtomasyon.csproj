@@ -128,7 +128,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ConcubineController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -279,6 +281,13 @@
     <Content Include="Views\Department\DepartmentUpdate.cshtml" />
     <Content Include="Views\Department\DepartmentDetay.cshtml" />
     <Content Include="Views\Department\EmployeeSales.cshtml" />
+    <Content Include="Views\Concubine\Index.cshtml" />
+    <Content Include="Views\Concubine\ConcubineAdd.cshtml" />
+    <Content Include="Views\Concubine\ConcubineUpdate.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\EmployeeAdd.cshtml" />
+    <Content Include="Views\Employee\EmployeeUpdate.cshtml" />
+    <Content Include="Views\Concubine\CustomerSales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

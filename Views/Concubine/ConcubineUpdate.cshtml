@@ -1,0 +1,77 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Concubine
+
+@{
+    ViewBag.Title = "ConcubineUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cariler /  Cari Güncelle     </li>
+</ol>
+<br />
+@using (Html.BeginForm("ConcubineUpdate", "Concubine", FormMethod.Post))
+{
+    <div class="form-group">
+       
+        @Html.HiddenFor(x => x.ConcubineID, new { @class = "form-control" })
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <a href="/Concubine/Index" class="btn btn-outline-primary"> Listeye Dön </a>
+
+
+                    </th>
+                    <th scope="col">
+                        @Html.Label("Pasif Yap ")
+
+                        @Html.CheckBoxFor(x => x.IsDelete, new { @class = "form-control" })
+
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        @Html.Label("Cari Ad")
+
+                        @Html.TextBoxFor(x => x.ConcubineFirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ConcubineFirstName, "" , new {@style = "color:red"})
+
+                    </th>
+                    <th scope="col">
+                        @Html.Label("Cari Soyad")
+
+                        @Html.TextBoxFor(x => x.ConcubinesLastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ConcubinesLastName, "", new { @style = "color:red" })
+
+                    </th>
+
+
+
+                </tr>
+                <tr>
+                    <th scope="col">
+                        @Html.Label("Cari Sehir")
+
+                        @Html.TextBoxFor(x => x.ConcubinesCity, new { @class = "form-control" })
+
+                    </th>
+                    <th scope="col">
+                        @Html.Label("Cari Mail  ")
+
+                        @Html.TextBoxFor(x => x.ConcubinesMail, new { @class = "form-control" })
+
+                    </th>
+                </tr>
+                <tr>
+                    
+                    <th scope="col"> <button class="btn btn-warning">Güncelle</button></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+}
+
+
+
+

@@ -1,0 +1,64 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Concubine
+
+@{
+    ViewBag.Title = "ConcubineAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Yeni Cari     </li>
+</ol>
+
+@using (Html.BeginForm("ConcubineAdd", "Concubine", FormMethod.Post))
+{
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col"><a href="/Concubine/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+            </tr>
+            <tr>
+                <th scope="col">
+                    @Html.HiddenFor(x => x.ConcubineID, new { @class = "form-control" })
+
+                    @Html.Label("Carinin Adı")
+                    @Html.TextBoxFor(x => x.ConcubineFirstName, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+                    @Html.Label("Carinin Soyadı")
+                    @Html.TextBoxFor(x => x.ConcubinesLastName, new { @class = "form-control" })
+                </th>
+
+               
+
+            </tr>
+
+            <tr>
+
+                <th scope="col">
+                    @Html.Label("Cari Mail")
+                    @Html.TextBoxFor(x => x.ConcubinesMail, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+
+
+                    @Html.Label("Cari Sehir")
+                    @Html.TextBoxFor(x => x.ConcubinesCity, new { @class = "form-control" })
+                </th>
+            </tr>
+
+            <tr>
+              
+                <th scope="col"> <button class="btn btn-success">Kaydet</button> </th>
+            </tr>
+
+            <tr>
+            </tr>
+        </thead>
+    </table>
+
+
+
+}
+
+

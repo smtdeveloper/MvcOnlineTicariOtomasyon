@@ -1,0 +1,72 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Employee
+
+
+@{
+    ViewBag.Title = "EmployeeAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Yeni Personel     </li>
+</ol>
+
+@using (Html.BeginForm("EmployeeAdd", "Employee", FormMethod.Post))
+{
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col"><a href="/Employee/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+                <th scope="col">
+                  
+                    @Html.Label("Pasif Yap ")
+                    @Html.CheckBoxFor(x => x.IsDelete, new { @class = "form-control" })
+                </th>
+            </tr>
+            <tr>
+                <th scope="col">
+                    @Html.HiddenFor(x => x.EmployeeID, new { @class = "form-control" })
+
+                    @Html.Label(" Adı")
+                    @Html.TextBoxFor(x => x.EmployeeFirstName, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+                    @Html.Label(" Soyadı")
+                    @Html.TextBoxFor(x => x.EmployeeLastName, new { @class = "form-control" })
+                </th>
+
+
+
+            </tr>
+
+            <tr>
+
+                <th scope="col">
+                    @Html.Label("Görsel yolu ")
+                    @Html.TextBoxFor(x => x.EmployeeImg, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+
+
+                    @Html.Label("Departman ID ")
+                    @Html.DropDownListFor(x => x.DepartmentId,(List<SelectListItem>)ViewBag.Values, new { @class = "form-control" })
+                </th>
+            </tr>
+
+            <tr>
+
+                <th scope="col"> <button class="btn btn-success">Kaydet</button> </th>
+            </tr>
+
+            <tr>
+            </tr>
+        </thead>
+    </table>
+
+
+
+}
+
+
+

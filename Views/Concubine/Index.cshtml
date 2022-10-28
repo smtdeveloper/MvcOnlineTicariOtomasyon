@@ -1,0 +1,88 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities
+@model List<Concubine>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">  Cariler  </li>
+</ol>
+
+<a href="/Concubine/ConcubineAdd" class="btn btn-outline-success">Yeni Cari Ekle</a>
+
+<table class="table table-hover m-2">
+    <thead>
+        <tr>
+            <th scope="col">Sil </th>
+            <th scope="col">#</th>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Sehir</th>
+            <th scope="col">Mail </th>
+
+            <th scope="col">Detaylar</th>
+            <th scope="col">Güncelle</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>  <button class="btn btn-outline-danger" onclick="deleteBlog(@item.ConcubineID)"> Sil </button> </td>
+                <th scope="row">@item.ConcubineID</th>
+                <td>@item.ConcubineFirstName</td>
+                <td>@item.ConcubinesLastName</td>
+                <td>@item.ConcubinesCity</td>
+                <td>@item.ConcubinesMail</td>
+                <td> <a href="/Concubine/CustomerSales/@item.ConcubineID" class="btn btn-primary"> Satış Geçmişi </a> </td>
+                <td> <a href="/Concubine/ConcubineUpdate/@item.ConcubineID" class="btn btn-warning"> Güncelle </a> </td>
+
+
+            </tr>
+        }
+
+
+</table>
+
+
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function deleteBlog(id) {
+        console.log(id)
+        Swal.fire({
+            title: 'Emin misiniz !',
+            text: "Cari'yi silmek istediğinize emin misiniz ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Evet, SİL',
+            cancelButtonText: "Vazgeç",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "post",
+                    url: "/Concubine/ConcubineDelete/" + id,
+                    success: function (func) {
+                        Swal.fire(
+                            'SİLİNDİ ! ',
+                            'Mesaj başarılı bir şekilde silindi.',
+                            'success'
+                        )
+                        setTimeout('', 3000);
+                        location.reload();
+                    }
+                }
+                )
+            }
+        })
+    }
+</script>

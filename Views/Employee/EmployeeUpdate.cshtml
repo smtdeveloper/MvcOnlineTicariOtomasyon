@@ -1,0 +1,72 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Employee
+
+@{
+    ViewBag.Title = "EmployeeUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"> Personel  Güncelle  </li>
+</ol>
+
+@using (Html.BeginForm("EmployeeUpdate", "Employee", FormMethod.Post))
+{
+
+
+    <div class="form-group">
+
+        <br />
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col"><a href="/Product/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+                    <th scope="col">
+                        
+
+                        @Html.Label("Pasif Yap")
+                        @Html.CheckBoxFor(x => x.IsDelete, new { @class = "form-control" })
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        @Html.HiddenFor(x => x.EmployeeID, new { @class = "form-control" })
+
+                        @Html.Label("Ad")
+                        @Html.TextBoxFor(x => x.EmployeeFirstName, new { @class = "form-control" })
+                    </th>
+                    <th scope="col">
+                        @Html.Label("Soyad  ")
+                        @Html.TextBoxFor(x => x.EmployeeLastName, new { @class = "form-control" })
+                    </th>
+
+                    
+                </tr>
+
+                <tr>
+
+                    <th scope="col">
+                        @Html.Label("Görsel Yolu  ")
+                        @Html.TextBoxFor(x => x.EmployeeImg ,new { @class = "form-control" })
+                    </th>
+                    <th scope="col">
+
+
+                        @Html.Label("Departman ID ")
+                        @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.Values, new { @class = "form-control" })
+                    </th>
+                   
+                </tr>
+
+             
+
+                <tr>
+                    <th scope="col"> <button class="btn btn-success">Kaydet</button> </th>
+                </tr>
+            </thead>
+        </table>
+
+
+    </div>
+
+}
