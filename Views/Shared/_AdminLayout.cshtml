@@ -20,12 +20,7 @@
             <i class="fas fa-bars"></i>
         </button><!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Ara ..." aria-label="Search" aria-describedby="basic-addon2" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
+           
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
@@ -53,7 +48,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
                             Kategoriler
                         </a>
-                        
+
                         <a class="nav-link collapsed" href="/Product/Index" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-bars"></i></div>
                             Ürünler
@@ -61,9 +56,9 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/Product/Index">Ürünler Listesi</a>
-                            <a class="nav-link" href="/Product/ProductAdd">Yeni Ürün Ekle</a>
-                           
+                                <a class="nav-link" href="/Product/Index">Ürünler Listesi</a>
+                                <a class="nav-link" href="/Product/ProductAdd">Yeni Ürün Ekle</a>
+
                             </nav>
                         </div>
                         <a class="nav-link" href="/Department/Index">
@@ -79,7 +74,7 @@
                             Personeller
                         </a>
                         <div class="sb-sidenav-menu-heading">Interface</div>
-                       
+
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                             <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>
                             Admin
@@ -104,7 +99,11 @@
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Raporlar</div>
-                        <a class="nav-link" href="charts.html">
+                        <a class="nav-link" href="/Sales/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
+                            Satışlar
+                        </a>
+                        <a class="nav-link" href="/Invoice/Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
                             Faturalar
                         </a>

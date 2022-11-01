@@ -1,0 +1,72 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities
+@model List<SalesMove>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Satış Listesi  </li>
+</ol>
+
+<br />
+<a href="/Sales/SalestAdd/" class="btn btn-primary p-2 m-3" >Satış Yap</a>
+<br />
+<table id="SalesMoveTBL" class="table table-hover m-2">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ürün</th>
+            <th scope="col">Cari</th>
+            <th scope="col">Personel</th>
+            <th scope="col">Adet</th>
+            <th scope="col">Birim Fiyat</th>
+            <th scope="col">Toplam Fiyat</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Detaylar</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.SalesMoveID</th>
+                <td>@item.Product.ProductName</td>
+                <td>@item.Concubine.ConcubineFirstName @item.Concubine.ConcubinesLastName</td>
+                <td>@item.Employee.EmployeeFirstName @item.Employee.EmployeeLastName</td>
+                <td>@item.Count</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.TotalPrice</td>
+                <td>@item.Date.ToShortDateString()</td>
+                <td> <a href="/Department/EmployeeSales/@item.EmployeeID" class="btn btn-dark"> Detay </a> </td>
+
+
+
+            </tr>
+        }
+
+
+</table>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#SalesMoveTBL').dataTable({});
+</script>
+
+

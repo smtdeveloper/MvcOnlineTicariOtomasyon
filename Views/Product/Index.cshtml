@@ -10,7 +10,7 @@
     <li class="breadcrumb-item active">Ürün Listesi  </li>
 </ol>
 
-<table class="table table-hover m-2">
+<table id="ProductsTBL" class="table table-hover m-2">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -29,20 +29,36 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <th scope="row">@item.ProductID</th>
-            <td>@item.ProductName</td>
-            <td>@item.Brand</td>
-            <td>@item.Stok</td>
-            <td>@item.BuyingPrice</td>
-            <td>@item.SalePrice</td>
-            <td>@item.Category.CategoryName</td>
-            <td>@item.ImgUrl</td>
-            <td> <a href="/Product/ProductUpdate/@item.ProductID" class="btn btn-warning"> Güncelle </a> </td>
+            <tr>
+                <th scope="row">@item.ProductID</th>
+                <td>@item.ProductName</td>
+                <td>@item.Brand</td>
+                <td>@item.Stok</td>
+                <td>@item.BuyingPrice</td>
+                <td>@item.SalePrice</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.ImgUrl</td>
+                <td> <a href="/Product/ProductUpdate/@item.ProductID" class="btn btn-warning"> Güncelle </a> </td>
 
 
-        </tr>
+            </tr>
         }
 
 
 </table>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#ProductsTBL').dataTable({});
+</script>
+

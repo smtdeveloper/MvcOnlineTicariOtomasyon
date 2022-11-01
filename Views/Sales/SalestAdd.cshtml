@@ -1,0 +1,81 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.SalesMove
+
+
+@{
+    ViewBag.Title = "SalestAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Yeni Satış     </li>
+</ol>
+
+@using (Html.BeginForm("SalestAdd", "Sales", FormMethod.Post))
+{
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+               
+            </tr>
+            <tr>
+                <th scope="col"><a href="/Sales/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+                <th> </th>
+                <th scope="col">
+                    @Html.Label("Tarih")
+                    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+                </th>
+              
+
+            </tr>
+            <tr>
+                <th scope="col">
+                    @Html.Label("Personel")
+                   
+                    @Html.DropDownListFor(x => x.EmployeeID, (List<SelectListItem>)ViewBag.VEmployees, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+                    @Html.Label("Cari")
+                  
+                    @Html.DropDownListFor(x => x.ConcubineID, (List<SelectListItem>)ViewBag.VConcubines, new { @class = "form-control" })
+                </th>
+                
+                <th scope="col">
+                    @Html.Label("Ürün")
+                   
+                    @Html.DropDownListFor(x => x.ProductID, (List<SelectListItem>)ViewBag.VProducts, new { @class = "form-control" })
+                </th>
+            </tr>
+            <tr>
+                <th scope="col">
+                    @Html.HiddenFor(x => x.SalesMoveID, new { @class = "form-control" })
+
+                    @Html.Label("Adet")
+                    @Html.TextBoxFor(x => x.Count, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+                    @Html.Label("Birim Fiyat")
+                    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+                </th>
+
+                <th scope="col"> <button class="btn btn-success">Satış Yap</button> </th>
+
+            </tr>
+
+
+
+
+
+            <tr>
+               
+
+            </tr>
+        </thead>
+    </table>
+
+
+
+}
+
+
