@@ -527,6 +527,7 @@
     <Content Include="Views\Concubine\CustomerSales.cshtml" />
     <Content Include="Views\Sales\Index.cshtml" />
     <Content Include="Views\Sales\SalestAdd.cshtml" />
+    <Content Include="Views\Product\ProductListPdf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

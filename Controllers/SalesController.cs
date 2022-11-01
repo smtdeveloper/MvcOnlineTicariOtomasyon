@@ -38,7 +38,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
                                               }).ToList();
             ViewBag.VConcubines = concubines;
 
-            List<SelectListItem> products = (from x in c.Products.Where(x => x.Status == true).ToList()
+            List<SelectListItem> products = (from x in c.Products.Where(x => x.Status == true && x.Stok > 0).ToList()
                                              select new SelectListItem
                                                {
                                                    Text = x.ProductName ,

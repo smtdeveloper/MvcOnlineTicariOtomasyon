@@ -20,6 +20,14 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
 
+        public ActionResult ProductListPdf()
+        {
+            var values = c.Products.Where(x => x.Status == true).ToList();
+            return View(values);
+
+        }
+
+
         [HttpGet]
         public ActionResult ProductAdd()
         {
