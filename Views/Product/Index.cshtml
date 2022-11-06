@@ -20,7 +20,7 @@
             <th scope="col">Alıs Fiyat</th>
             <th scope="col">Satış Fiyat</th>
             <th scope="col">Kategori</th>
-            <th scope="col">Görsel</th>
+          
             <th scope="col"> Güncelle </th>
 
 
@@ -30,19 +30,28 @@
         @foreach (var item in Model)
         {
             <tr>
-                <th scope="row">@item.ProductID</th>
+                <th>
+                    <img class=" " width="280" height="200" src="@item.ImgUrl" />
+                </th>
+                
                 <td>@item.ProductName</td>
                 <td>@item.Brand</td>
                 <td>@item.Stok</td>
                 <td>@item.BuyingPrice</td>
                 <td>@item.SalePrice</td>
                 <td>@item.Category.CategoryName</td>
-                <td>@item.ImgUrl</td>
+
                 <td> <a href="/Product/ProductUpdate/@item.ProductID" class="btn btn-warning"> Güncelle </a> </td>
 
 
             </tr>
+
+
+            
+
+
         }
+
 
 
 </table>
