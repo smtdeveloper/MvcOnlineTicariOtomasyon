@@ -1,0 +1,81 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities
+@model List<InvoicePen>
+
+@{
+    ViewBag.Title = "InvoicePenDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"> Fatura Kalem Detay  </li>
+</ol>
+
+<br />
+<a href="/Invoice/Index" class="btn btn-primary m-4"> <h5> Listeye Dön </h5>  </a>
+<br />
+
+
+<table id="TBL" class="table table-hover m-2">
+    <thead>
+        <tr>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th>  <a href="/Invoice/InvoicePenAdd" class="btn btn-success m-2"> <h5> Yeni Fatura Kalem Ekle </h5>  </a> </th>
+           
+        </tr>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Acıklama</th>
+            <th scope="col">Adet</th>
+            <th scope="col">Birim Fiyat</th>
+            <th scope="col">Toplam Fiyat</th>
+            <th scope="col">Fatura Teslim Eden</th>
+            <th scope="col">Fatura Teslim Alan</th>
+
+            <th scope="col">Yazdır</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.InvoiceID</th>
+                <td>@item.Description</td>
+                <td>@item.Count</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.TotalPrice</td>
+                <td>@item.Invoice.Submitter</td>
+                <td>@item.Invoice.DeliveryArea</td>
+
+                <td> <a href="#" class="btn btn-dark"> Yazdır </a> </td>
+
+
+            </tr>
+        }
+
+
+</table>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#TBL').dataTable({});
+</script>
+
+

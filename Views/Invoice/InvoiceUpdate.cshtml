@@ -1,0 +1,80 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Invoice
+
+@{
+    ViewBag.Title = "InvoiceUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"> Fatura  Güncelle  </li>
+</ol>
+
+@using (Html.BeginForm("InvoiceUpdate", "Invoice", FormMethod.Post))
+{
+
+
+    <div class="form-group">
+
+        <br />
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col"><a href="/Invoice/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        @Html.HiddenFor(x => x.InvoiceID, new { @class = "form-control" })
+
+                        @Html.Label("Seri NO")
+                        @Html.TextBoxFor(x => x.InvoiceSequenceNo, new { @class = "form-control" })
+                    </th>
+                    <th scope="col">
+                        @Html.Label("Sıra No")
+                        @Html.TextBoxFor(x => x.InvoiceSerialNumber, new { @class = "form-control" })
+                    </th>
+
+
+
+                </tr>
+
+                <tr>
+
+                    <th scope="col">
+                        @Html.Label("Teslim Eden")
+                        @Html.TextBoxFor(x => x.Submitter, new { @class = "form-control" })
+                    </th>
+                    <th scope="col">
+                        @Html.Label("Teslim Alan")
+                        @Html.TextBoxFor(x => x.DeliveryArea, new { @class = "form-control" })
+                    </th>
+
+                </tr>
+
+                <tr>
+
+                    <th scope="col">
+                        @Html.Label("Vergi NO")
+                        @Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+                    </th>
+                    <th scope="col">
+                        @Html.Label("Tarih")
+                        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+                    </th>
+
+                </tr>
+
+
+
+                <tr>
+                    <th scope="col">
+                        @Html.Label("Toplam")
+                        @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+                    </th>
+                    <th scope="col"> <button class="btn btn-success">Kaydet</button> </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+}

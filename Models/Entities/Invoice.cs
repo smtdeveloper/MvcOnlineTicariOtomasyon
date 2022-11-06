@@ -13,8 +13,9 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         public string InvoiceSerialNumber { get; set; } //Fatura Seri No
         public string InvoiceSequenceNo { get; set; } //Sequence No
         public string TaxAdministration { get; set; } //VergiDairesi
-        public string Submitter { get; set; } //Submitter TeslimEden
-        public string DeliveryArea { get; set; } //DeliveryArea TeslimAlan
+        public string Submitter { get; set; } //Submitter Teslim Eden
+        public string DeliveryArea { get; set; } //DeliveryArea Teslim Alan
+        public decimal TotalPrice { get; set; }
         public DateTime Date { get; set; }
 
         public ICollection<InvoicePen> InvoicePens { get; set; }

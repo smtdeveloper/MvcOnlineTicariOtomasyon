@@ -14,6 +14,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         public int Count { get; set; }
         public int UnitPrice { get; set; }
         public int TotalPrice { get; set; }
-        public Invoice Invoice { get; set; }
+        public int InvoiceID { get; set; }
+        public virtual Invoice Invoice { get; set; }
     }
 }

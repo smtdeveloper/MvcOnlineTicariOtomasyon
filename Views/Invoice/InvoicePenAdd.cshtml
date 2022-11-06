@@ -1,0 +1,69 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.InvoicePen
+
+@{
+    ViewBag.Title = "InvoicePenAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Yeni Fatura Kalem Ekle     </li> 
+</ol>
+
+@using (Html.BeginForm("InvoicePenAdd", "Invoice", FormMethod.Post))
+{
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col"><a href="/Invoice/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+                
+            </tr>
+            <tr>
+                <th scope="col">
+                    @Html.HiddenFor(x => x.InvoicePenID, new { @class = "form-control" })
+
+                    @Html.Label("Acıklama")
+                    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+                </th>
+              
+                <th>
+                    @Html.Label("Fatura")
+                   
+                    @Html.DropDownListFor(x => x.InvoiceID, (List<SelectListItem>)ViewBag.Values, new { @class = "form-control" })
+
+                </th>
+
+
+
+            </tr>
+
+            <tr>
+
+                <th scope="col">
+                    @Html.Label("Adet")
+                    @Html.TextBoxFor(x => x.Count, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+                    @Html.Label("Birim Fiyat")
+                    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+                </th>
+                
+            </tr>
+
+            <tr>
+               
+              
+                <th scope="col"> <button class="btn btn-success">Kaydet</button> </th>
+            </tr>
+
+            <tr>
+            </tr>
+        </thead>
+    </table>
+
+}
+
+
+
+
+
