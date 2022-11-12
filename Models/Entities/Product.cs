@@ -16,6 +16,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         public decimal BuyingPrice { get; set; } // aldıgın fiyat
         public decimal SalePrice { get; set; } // sattıgın fiyat
         public string ImgUrl { get; set; }
+        public string Declaration { get; set; }
         public bool Status { get; set; }
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }

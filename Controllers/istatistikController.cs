@@ -1,4 +1,5 @@
-﻿using MvcOnlineTicariOtomasyon.Models.DB;
+﻿using MvcOnlineTicariOtomasyon.Models;
+using MvcOnlineTicariOtomasyon.Models.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,15 +36,15 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var kritikSeviye = c.Products.Count(x => x.Stok <= 20).ToString();
             ViewBag.kritik = kritikSeviye;
 
-            var maxFiyat = (from x in c.Products where x.Status == true  orderby x.SalePrice descending select x.ProductName).FirstOrDefault();
+            var maxFiyat = (from x in c.Products where x.Status == true orderby x.SalePrice descending select x.ProductName).FirstOrDefault();
             ViewBag.maxFiyat = maxFiyat;
 
-            var minFiyat = (from x in c.Products where x.Status == true  orderby x.SalePrice ascending select x.ProductName).FirstOrDefault();
+            var minFiyat = (from x in c.Products where x.Status == true orderby x.SalePrice ascending select x.ProductName).FirstOrDefault();
             ViewBag.minFiyat = minFiyat;
 
             var kediKumu = (from x in c.Products where x.ProductName == "Kedi Kumu" select x.Stok).FirstOrDefault();
             ViewBag.kediKumu = kediKumu;
-            
+
             var yasMama = (from x in c.Products where x.ProductName == "yaş mama" select x.Stok).FirstOrDefault();
             ViewBag.yasMama = yasMama;
 
@@ -55,8 +56,8 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.BugunSatısCount = BugunSatısCount;
 
 
-            var BugunSatısTutar = c.salesMoves.Where(x => x.Date == bugun).Sum(y => y.TotalPrice).ToString();
-            ViewBag.BugunSatısTutar = BugunSatısTutar;
+            //var BugunSatısTutar = c.salesMoves.Where(x => x.Date == bugun).Sum(y => y.TotalPrice).ToString();
+            //ViewBag.BugunSatısTutar = BugunSatısTutar;
 
 
             var maxMarka = c.Products.GroupBy(x => x.Brand)
@@ -64,7 +65,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.maxMarka = maxMarka;
 
 
-            var EnCokSatan = c.Products.Where(u => u.ProductID ==(  c.salesMoves.GroupBy(x => x.ProductID)
+            var EnCokSatan = c.Products.Where(u => u.ProductID == (c.salesMoves.GroupBy(x => x.ProductID)
                 .OrderByDescending(z => z.Count()).Select(y => y.Key)
                 .FirstOrDefault())).Select(k => k.ProductName).FirstOrDefault();
             ViewBag.EnCokSatan = EnCokSatan;
@@ -74,8 +75,40 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
 
+        public ActionResult BasitTablolar()
+        {
+            var query = from x in c.Concubines
+                         group x by x.ConcubinesCity into g
+                         select new GroupBy
+                         {
+                             City = g.Key,
+                             Count = g.Count()
+                         };
+
+            return View(query.ToList());
+        }
 
 
+        public PartialViewResult Partial1()
+        {
+            var query = from x in c.Employees
+                        group x by x.Department.DepartmentName into g
+                        select new GroupBy2
+                        {
+                            DepartmanName = g.Key,
+                            Count = g.Count()
+                        };
+
+            return PartialView(query.ToList());
+
+        }
+
+        public PartialViewResult Cariler()
+        {
+            var values = c.Concubines.ToList();
+            return PartialView(values);
+
+        }
 
     }
 }

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MvcOnlineTicariOtomasyon.Models.GroupBy2>
+
+<br />
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Departman Personel Adeti</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Departman </th>
+                        <th></th>
+                        <th style="width: 40px">Adet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int sirano = 0;}
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @{sirano++;} @sirano </td>
+                            <td> @item.DepartmanName  </td>
+                            <td>
+                                @if (item.Count >= 0 && item.Count <= 3)
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar bg-danger" style="width: 25%"></div>
+                                    </div>
+                                }
+                                @if (item.Count >= 4 && item.Count <= 6)
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                    </div>
+                                }
+                                @if (item.Count >= 7 && item.Count <= 9)
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar bg-info" style="width: 70%"></div>
+                                    </div>
+                                }
+                                @if (item.Count >= 10)
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar bg-success" style="width: 80%"></div>
+                                    </div>
+                                }
+
+
+
+
+                              
+                            </td>
+                            <td>
+
+
+
+                                <span class="badge bg-dark"> <h5> @item.Count </h5>   </span>
+
+
+                            </td>
+                        </tr>
+
+                    }
+
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+
+    </div>
+
+</div>

@@ -138,6 +138,7 @@
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\istatistikController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductDetayController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -154,6 +155,7 @@
     <Compile Include="Models\Entities\InvoicePen.cs" />
     <Compile Include="Models\Entities\Product.cs" />
     <Compile Include="Models\Entities\SalesMove.cs" />
+    <Compile Include="Models\GroupBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2832,6 +2834,10 @@
     <Content Include="thumber\scss\_site-blocks.scss" />
     <Content Include="thumber\scss\_site-navbar.scss" />
     <Content Include="Views\Galeri\Index.cshtml" />
+    <Content Include="Views\ProductDetay\Index.cshtml" />
+    <Content Include="Views\istatistik\BasitTablolar.cshtml" />
+    <Content Include="Views\istatistik\Partial1.cshtml" />
+    <Content Include="Views\istatistik\Cariler.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
