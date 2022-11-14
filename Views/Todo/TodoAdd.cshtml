@@ -1,0 +1,34 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Todo
+
+@{
+    ViewBag.Title = "TodoAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Yapılacaklar  / Yeni Görev  </li>
+</ol>
+<br />
+
+@using (Html.BeginForm("TodoAdd", "Todo", FormMethod.Post))
+{
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.Label("Görevi Yaz  ")
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                </th>
+                <th scope="col"> <button class="btn btn-success">Ekle</button> </th>
+                <th scope="col"><a href="/Todo/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+
+            </tr>
+        </thead>
+    </table>
+
+
+
+}
+
+

@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ConcubineController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\GaleriController.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductDetayController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\TodoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -155,6 +157,7 @@
     <Compile Include="Models\Entities\InvoicePen.cs" />
     <Compile Include="Models\Entities\Product.cs" />
     <Compile Include="Models\Entities\SalesMove.cs" />
+    <Compile Include="Models\Entities\Todo.cs" />
     <Compile Include="Models\GroupBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2838,6 +2841,10 @@
     <Content Include="Views\istatistik\BasitTablolar.cshtml" />
     <Content Include="Views\istatistik\Partial1.cshtml" />
     <Content Include="Views\istatistik\Cariler.cshtml" />
+    <Content Include="Views\Todo\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Todo\TodoAdd.cshtml" />
+    <Content Include="Views\Todo\TodoUpdate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

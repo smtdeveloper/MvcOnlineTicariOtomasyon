@@ -16,25 +16,30 @@
 
     @foreach (var item in Model)
     {
-        <div class="card border-dark  m-4 p-2" style="max-width: 24rem;">
-            <div class="card-header">
-                @item.EmployeeFirstName  @item.EmployeeLastName  /
-                @if (item.IsDelete)
-                {
-                    <h6 class="bg-secondary" > Pasif </h6>
-                }
-                else
-                {
-                    <h6  class="bg-success" > Aktif </h6>
-                }
-            </div>
-            <div class="card-body text-success">
-                <h5 class="card-title">@item.Department.DepartmentName</h5>
-                <p class="card-text">  </p>
-                <a href="/Department/EmployeeSales/@item.EmployeeID" class="btn btn-dark">Satış</a>
-                <a href="/Employee/EmployeeUpdate/@item.EmployeeID" class="btn btn-warning">Güncelle</a>
-            </div>
+    <div class="card border-dark  m-4 p-2" style="max-width: 24rem;">
+        <img width="150" height="150" src="@item.EmployeeImg" class="card-img-top" alt="...">
+        <div class="card-header">
+            @item.EmployeeFirstName  @item.EmployeeLastName  / @item.EmployeeID
+            @if (item.IsDelete)
+            {
+                <h6 class="bg-secondary"> Pasif </h6>
+            }
+            else
+            {
+                <h6 class="bg-success"> Aktif </h6>
+            }
         </div>
+
+        <h5> @item.SalesMoves </h5>
+
+
+        <div class="card-body text-success">
+            <h5 class="card-title">@item.Department.DepartmentName</h5>
+            <p class="card-text">  </p>
+            <a href="/Department/EmployeeSales/@item.EmployeeID" class="btn btn-dark">Satış Geçmişi</a>
+            <a href="/Employee/EmployeeUpdate/@item.EmployeeID" class="btn btn-warning">Güncelle</a>
+        </div>
+    </div>
 
     }
 </div>

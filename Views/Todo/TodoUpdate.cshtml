@@ -1,0 +1,44 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Todo
+
+@{
+    ViewBag.Title = "TodoUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Yapılacaklar  / Görev  Güncelle  </li>
+</ol>
+<br />
+@using (Html.BeginForm("TodoUpdated", "Todo", FormMethod.Post))
+{
+    <div class="form-group">
+
+        <table class="table table-borderless">
+            <thead>
+            
+                    
+                <tr>
+                    <th>
+                        <h6> Yapıldı </h6>
+                        @Html.CheckBoxFor(x => x.Status, new { @class = "form-control" })
+                    </th>
+                    <th scope="col">
+
+
+                        <h6> Görevi Güncelle </h6>
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                        @Html.HiddenFor(x => x.IsDelete)
+                        @Html.HiddenFor(x => x.ID)
+
+                    </th>
+                    <th scope="col"> <button class="btn btn-warning">Güncelle</button></th>
+                    <th scope="col"><a href="/Todo/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+}
+
+
