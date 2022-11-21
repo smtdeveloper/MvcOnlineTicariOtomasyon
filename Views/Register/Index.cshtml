@@ -1,8 +1,7 @@
-﻿
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Concubine
 @{
     Layout = null;
 }
-
 
 <!DOCTYPE html>
 
@@ -302,7 +301,7 @@ h6 span{
 
 
     <div class="section">
-        <a class="btn btn-block m-2 mt-4" href="/Register/Index">Kayıt Ol</a>
+
         <div class="container">
 
             <div class="row full-height justify-content-center">
@@ -311,11 +310,11 @@ h6 span{
                     <img width="200" height="200" src="https://hibi.com.tr/upload/hizmetler/size-ozel-e-ticaret.png" />
                     <div class="section pb-5 pt-5 pt-sm-2 text-center">
 
-                       
-                        <img src="~/web2/images/smt.png" />
-                        <h6 class="mb-0 pb-3"><span> Kullanıcı </span><span> Admin </span></h6>
 
-                        <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+                        <img src="~/web2/images/smt.png" />
+
+
+
                         <label for="reg-log"></label>
 
                         <div class="card-3d-wrap mx-auto">
@@ -328,10 +327,25 @@ h6 span{
 
                                     <div class="center-wrap">
                                         <div class="section text-center">
-                                            <h4 class="mb-4 pb-3"> Kullanıcı Girişi </h4>
-                                            @using (Html.BeginForm("CariLogin", "Login", FormMethod.Post))
+                                            <h4 class="mb-4 pb-3"> Cari Kayıt </h4>
+                                            @using (Html.BeginForm("CariRegister", "Register", FormMethod.Post))
                                             {
-                                                <div class="form-group">
+                                                <div class="form-group mt-2">
+                                                    <input type="text" name="FirstName" class="form-style"
+                                                           placeholder="İsim" id="logemail" autocomplete="off">
+
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="text" name="LastName" class="form-style"
+                                                           placeholder="Soy isim" id="logemail" autocomplete="off">
+
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="text" name="City" class="form-style"
+                                                           placeholder="sehir" id="logemail" autocomplete="off">
+
+                                                </div>
+                                                <div class="form-group mt-2">
                                                     <input type="email" name="Mail" class="form-style"
                                                            placeholder="Email" id="logemail" autocomplete="off">
 
@@ -342,12 +356,12 @@ h6 span{
 
                                                 </div>
 
-                                                <button type="submit" class="btn mt-4"> Giriş Yap</button>
+                                                <button type="submit" class="btn mt-4"> Kayıt Ol </button>
 
                                             }
 
 
-                                            <p class="mb-0 mt-4 text-center"><a href="#" class="link">Şifremi unuttum ! </a></p>
+                                            <p class="mb-0 mt-4 text-center"><a href="/Login/Index" class="link">Zaten üyeyim :) </a></p>
                                         </div>
 
                                     </div>
@@ -356,29 +370,29 @@ h6 span{
 
 
 
-                                <div class="card-back">
+                                @*<div class="card-back">
 
-                                    <div class="center-wrap">
-                                        <div class="section text-center">
-                                            <h4 class="mb-4 pb-3"> Yönetiçi Girişi </h4>
-                                            @using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post))
-                                            {
-                                                <div class="form-group mt-2">
-                                                    <input type="text" name="UserName" class="form-style"
-                                                           placeholder="Kullanıcı Adı" id="" autocomplete="off">
+                                        <div class="center-wrap">
+                                            <div class="section text-center">
+                                                <h4 class="mb-4 pb-3"> Yönetiçi Girişi </h4>
+                                                @using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post))
+                                                {
+                                                    <div class="form-group mt-2">
+                                                        <input type="text" name="UserName" class="form-style"
+                                                               placeholder="Kullanıcı Adı" id="" autocomplete="off">
 
-                                                </div>
-                                                <div class="form-group mt-2">
-                                                    <input type="password" name="Password" class="form-style"
-                                                           placeholder="Parola" id="logpass" autocomplete="off">
-                                                    <i class="input-icon uil uil-lock-alt"></i>
-                                                </div>
+                                                    </div>
+                                                    <div class="form-group mt-2">
+                                                        <input type="password" name="Password" class="form-style"
+                                                               placeholder="Parola" id="logpass" autocomplete="off">
+                                                        <i class="input-icon uil uil-lock-alt"></i>
+                                                    </div>
 
-                                                <button type="submit" class="btn mt-4"> Giriş Yap</button>
-                                            }
+                                                    <button type="submit" class="btn mt-4"> Giriş Yap</button>
+                                                }
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div>*@
 
 
 
