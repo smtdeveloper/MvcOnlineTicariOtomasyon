@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class TodoController : Controller
     {
         Context c = new Context();

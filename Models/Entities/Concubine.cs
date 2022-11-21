@@ -11,11 +11,12 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         [Key]
         public int ConcubineID { get; set; }
         [Required (ErrorMessage = "Bu Alan Boş Gecilemez ! ")]
-        public string ConcubineFirstName { get; set; }
+        public string FirstName { get; set; }
         [Required(ErrorMessage = "Bu Alan Boş Gecilemez ! ")]
-        public string ConcubinesLastName { get; set; }
-        public string ConcubinesCity { get; set; }
-        public string ConcubinesMail { get; set; }
+        public string LastName { get; set; }
+        public string City { get; set; }
+        public string Mail { get; set; }
+        public string Password { get; set; }
         public bool IsDelete { get; set; }
         public ICollection<SalesMove> SalesMoves { get; set; }  
     }

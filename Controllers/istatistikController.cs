@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class istatistikController : Controller
     {
         Context c = new Context();
@@ -78,7 +79,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult BasitTablolar()
         {
             var query = from x in c.Concubines
-                         group x by x.ConcubinesCity into g
+                         group x by x.City into g
                          select new GroupBy
                          {
                              City = g.Key,

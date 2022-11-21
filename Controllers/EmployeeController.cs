@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         Context c = new Context();

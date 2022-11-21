@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class SalesController : Controller
     {
         Context c = new Context();
@@ -33,7 +34,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             List<SelectListItem> concubines = (from x in c.Concubines.Where(x => x.IsDelete == false).ToList()
                                               select new SelectListItem
                                               {
-                                                  Text = x.ConcubineFirstName + " " + x.ConcubinesLastName,
+                                                  Text = x.FirstName + " " + x.LastName,
                                                   Value = x.ConcubineID.ToString()
                                               }).ToList();
             ViewBag.VConcubines = concubines;

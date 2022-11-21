@@ -138,6 +138,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\istatistikController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductDetayController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
@@ -2317,6 +2318,7 @@
     <Content Include="web2\images\pp0.jpg" />
     <Content Include="web2\images\pp01.jpg" />
     <Content Include="web2\images\settings.png" />
+    <Content Include="web2\images\smt.png" />
     <Content Include="web2\images\tick-mark.png" />
     <Content Include="web2\index.html" />
     <Content Include="web2\js\Chart1.js" />
@@ -2845,6 +2847,7 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Todo\TodoAdd.cshtml" />
     <Content Include="Views\Todo\TodoUpdate.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

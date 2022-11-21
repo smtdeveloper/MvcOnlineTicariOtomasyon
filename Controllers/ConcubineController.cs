@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class ConcubineController : Controller
     {
 
@@ -66,10 +67,10 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             var value = c.Concubines.Find(concubine.ConcubineID);
 
-            value.ConcubineFirstName = concubine.ConcubineFirstName;
-            value.ConcubinesLastName = concubine.ConcubinesLastName;
-            value.ConcubinesCity = concubine.ConcubinesCity;
-            value.ConcubinesMail = concubine.ConcubinesMail;
+            value.FirstName = concubine.FirstName;
+            value.LastName = concubine.LastName;
+            value.City = concubine.City;
+            value.Mail = concubine.Mail;
             value.IsDelete = false;
 
             c.SaveChanges();
@@ -83,7 +84,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
 
             var values = c.salesMoves.Where(x => x.ConcubineID == id).ToList();
-            var cariName = c.Concubines.Where(x => x.ConcubineID == id).Select(y => y.ConcubineFirstName + " " + y.ConcubinesLastName).FirstOrDefault();
+            var cariName = c.Concubines.Where(x => x.ConcubineID == id).Select(y => y.FirstName + " " + y.LastName).FirstOrDefault();
             ViewBag.VCariName = cariName;
 
 
