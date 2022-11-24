@@ -30,7 +30,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
                 Session["CariEmail"] = login.Mail.ToString();
 
-                return RedirectToAction("Index", "Todo");
+                return RedirectToAction("Index", "ConcubinePanel");
             }
             else
             {
@@ -51,7 +51,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
                 Session["UserName"] = login.UserName.ToString();
 
-                return RedirectToAction("Index", "istatistik");
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {

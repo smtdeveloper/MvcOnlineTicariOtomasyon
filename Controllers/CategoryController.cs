@@ -2,10 +2,12 @@
 using MvcOnlineTicariOtomasyon.Models.Entities;
 using System.Linq;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
-    [Authorize]
+   
     public class CategoryController : Controller
     {
         Context c = new Context();
@@ -13,10 +15,10 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         // GET: Category
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
             //var values = c.Categories.Where(x => x.IsDelete == false).ToList();
-            var values = c.Categories.ToList();
+            var values = c.Categories.ToList().ToPagedList(page, 6);
             return View(values);
 
         }

@@ -1,5 +1,8 @@
 ﻿@using MvcOnlineTicariOtomasyon.Models.Entities
-@model List<Category>
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<Category>
 
 
 
@@ -55,6 +58,7 @@
     </div>
 
 
+@Html.PagedListPager((IPagedList)Model , Page => Url.Action("Index" , new { Page }))
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

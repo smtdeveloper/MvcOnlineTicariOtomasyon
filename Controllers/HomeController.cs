@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
-    
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
