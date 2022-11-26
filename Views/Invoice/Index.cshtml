@@ -27,7 +27,9 @@
             <th scope="col">Toplam</th>
             <th scope="col">Tarih</th>
 
+            <th scope="col">  </th>
             <th scope="col"> </th>
+            <th scope="col">  </th>
             <th scope="col"> </th>
 
 
@@ -37,20 +39,24 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <th scope="row">@item.InvoiceID</th>
-                <td>@item.InvoiceSerialNumber</td>
-                <td>@item.InvoiceSequenceNo</td>
-                <td>@item.TaxAdministration</td>
-                <td>@item.Submitter</td>
-                <td>@item.DeliveryArea</td>
-                <td>@item.TotalPrice ₺</td>
-                <td>@item.Date</td>
-                <td> <a href="/Invoice/InvoicePenDetay/@item.InvoiceID" class="btn btn-dark"> Detay </a> </td>
-                <td> <a href="/Invoice/InvoiceUpdate/@item.InvoiceID" class="btn btn-warning"> Güncelle </a> </td>
+        <tr>
+            <th scope="row">@item.InvoiceID</th>
+            <td>@item.InvoiceSerialNumber</td>
+            <td>@item.InvoiceSequenceNo</td>
+            <td>@item.TaxAdministration</td>
+            <td>@item.Submitter</td>
+            <td>@item.DeliveryArea</td>
+            <td>@item.TotalPrice ₺</td>
+            <td>@item.Date</td>
+            <td> <a href="/Invoice/InvoicePenDetay/@item.InvoiceID" class="btn btn-dark"> Detay </a> </td>
+            <td> <a href="/Invoice/InvoiceUpdate/@item.InvoiceID" class="btn btn-warning"> Güncelle </a> </td>
 
 
-            </tr>
+            <td> <a href="/Invoice/InvoiceUpdate/@item.InvoiceID" class="btn btn-success"> Yeni Kalem </a> </td>
+            <td> <a href="/Invoice/InvoicePenDetay/@item.InvoiceID" class="btn btn-outline-primary"> Popup </a> </td>
+
+
+        </tr>
         }
 
 

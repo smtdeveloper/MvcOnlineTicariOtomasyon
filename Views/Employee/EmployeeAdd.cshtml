@@ -11,59 +11,32 @@
     <li class="breadcrumb-item active">Yeni Personel     </li>
 </ol>
 
-@using (Html.BeginForm("EmployeeAdd", "Employee", FormMethod.Post))
+@using (Html.BeginForm("EmployeeAdd", "Employee", FormMethod.Post , new { enctype = "multipart/form-data" }))
 {
+   
+<form class="form-group" method="post">
+    @Html.HiddenFor(x => x.EmployeeID, new { @class = "form-control" })
     <br />
-    <table class="table table-borderless">
-        <thead>
-            <tr>
-                <th scope="col"><a href="/Employee/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
-                <th scope="col">
-                  
-                    @Html.Label("Pasif Yap ")
-                    @Html.CheckBoxFor(x => x.IsDelete, new { @class = "form-control" })
-                </th>
-            </tr>
-            <tr>
-                <th scope="col">
-                    @Html.HiddenFor(x => x.EmployeeID, new { @class = "form-control" })
-
-                    @Html.Label(" Adı")
-                    @Html.TextBoxFor(x => x.EmployeeFirstName, new { @class = "form-control" })
-                </th>
-                <th scope="col">
-                    @Html.Label(" Soyadı")
-                    @Html.TextBoxFor(x => x.EmployeeLastName, new { @class = "form-control" })
-                </th>
+    @Html.Label("Pasif Yap ")
+    @Html.CheckBoxFor(x => x.IsDelete, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ad")
+    @Html.TextBoxFor(x => x.EmployeeFirstName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Soyad")
+    @Html.TextBoxFor(x => x.EmployeeLastName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Profil Resmi")
+    
+    <input type="file" name="EmployeeImg" />
+    <br />
+    @Html.Label("Departman ")
+    @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.Values, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success">Kaydet</button>
 
 
-
-            </tr>
-
-            <tr>
-
-                <th scope="col">
-                    @Html.Label("Görsel yolu ")
-                    @Html.TextBoxFor(x => x.EmployeeImg, new { @class = "form-control" })
-                </th>
-                <th scope="col">
-
-
-                    @Html.Label("Departman ID ")
-                    @Html.DropDownListFor(x => x.DepartmentId,(List<SelectListItem>)ViewBag.Values, new { @class = "form-control" })
-                </th>
-            </tr>
-
-            <tr>
-
-                <th scope="col"> <button class="btn btn-success">Kaydet</button> </th>
-            </tr>
-
-            <tr>
-            </tr>
-        </thead>
-    </table>
-
+</form>
 
 
 }

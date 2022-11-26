@@ -10,7 +10,7 @@
     <li class="breadcrumb-item active"> Personel  Güncelle  </li>
 </ol>
 
-@using (Html.BeginForm("EmployeeUpdate", "Employee", FormMethod.Post))
+@using (Html.BeginForm("EmployeeUpdate", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" } ))
 {
 
 
@@ -46,8 +46,10 @@
                 <tr>
 
                     <th scope="col">
-                        @Html.Label("Görsel Yolu  ")
-                        @Html.TextBoxFor(x => x.EmployeeImg ,new { @class = "form-control" })
+                        @Html.Label("Profil resmi  ")
+                        @*<img src="@Html.TextBoxFor(x => x.EmployeeImg)" alt="Alternate Text" />*@
+                        <input type="file" name="EmployeeImg" />
+                        @*@Html.TextBoxFor(x => x.EmployeeImg ,new { @class = "form-control" })*@
                     </th>
                     <th scope="col">
 

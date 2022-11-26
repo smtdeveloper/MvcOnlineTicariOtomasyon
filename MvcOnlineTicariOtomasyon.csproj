@@ -2896,9 +2896,11 @@
     <Content Include="Views\Shared\_ConcubineLayout.cshtml" />
     <Content Include="Views\ConcubinePanel\Index.cshtml" />
     <Content Include="Views\ConcubinePanel\Orders.cshtml" />
+    <Content Include="Views\ConcubinePanel\NewParola.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

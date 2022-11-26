@@ -47,7 +47,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
 
-
+        [HttpGet]
         public ActionResult ConcubineUpdate(int id)
         {
             var value = c.Concubines.Find(id);
@@ -71,7 +71,9 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             value.LastName = concubine.LastName;
             value.City = concubine.City;
             value.Mail = concubine.Mail;
-            value.IsDelete = false;
+            value.IsDelete = concubine.IsDelete;
+            value.Password = concubine.Password;
+
 
             c.SaveChanges();
 

@@ -18,10 +18,7 @@
             
                     
                 <tr>
-                    <th>
-                        <h6> Yapıldı </h6>
-                        @Html.CheckBoxFor(x => x.Status, new { @class = "form-control" })
-                    </th>
+
                     <th scope="col">
 
 
@@ -30,6 +27,10 @@
                         @Html.HiddenFor(x => x.IsDelete)
                         @Html.HiddenFor(x => x.ID)
 
+                    </th>
+                    <th>
+                        <h6> Yapıldı </h6>
+                        @Html.CheckBoxFor(x => x.Status, new { @class = "form-control" })
                     </th>
                     <th scope="col"> <button class="btn btn-warning">Güncelle</button></th>
                     <th scope="col"><a href="/Todo/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>

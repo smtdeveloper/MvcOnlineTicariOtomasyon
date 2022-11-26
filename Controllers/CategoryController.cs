@@ -48,7 +48,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.Categories.Add(category);
             c.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("CategoryAdd");
 
         }
 

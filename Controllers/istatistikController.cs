@@ -57,8 +57,8 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.BugunSatısCount = BugunSatısCount;
 
 
-            //var BugunSatısTutar = c.salesMoves.Where(x => x.Date == bugun).Sum(y => y.TotalPrice).ToString();
-            //ViewBag.BugunSatısTutar = BugunSatısTutar;
+            var BugunSatısTutar = c.salesMoves.Where(x => x.Date == bugun).Sum(y => (decimal?) y.TotalPrice).ToString();
+            ViewBag.BugunSatısTutar = BugunSatısTutar;
 
 
             var maxMarka = c.Products.GroupBy(x => x.Brand)

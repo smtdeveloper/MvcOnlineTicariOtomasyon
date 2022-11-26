@@ -1,18 +1,19 @@
 ﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Concubine
 
 @{
-    ViewBag.Title = "ConcubineUpdate";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "NewParola";
+    Layout = "~/Views/Shared/_ConcubineLayout.cshtml";
 }
 
+
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Cariler /  Cari Güncelle     </li>
+    <li class="breadcrumb-item active">Güncelle       </li>
 </ol>
 <br />
-@using (Html.BeginForm("ConcubineUpdate", "Concubine", FormMethod.Post))
+@using (Html.BeginForm("NewParola", "ConcubinePanel", FormMethod.Post))
 {
     <div class="form-group">
-       
+
         @Html.HiddenFor(x => x.ConcubineID, new { @class = "form-control" })
         <table class="table table-borderless">
             <thead>
@@ -23,18 +24,18 @@
 
                     </th>
                     <th scope="col">
-                        @Html.Label("Pasif Yap ")
+                       
 
-                        @Html.CheckBoxFor(x => x.IsDelete, new { @class = "form-control" })
+                        @Html.HiddenFor(x => x.IsDelete, new { @class = "form-control" })
 
                     </th>
                 </tr>
                 <tr>
                     <th scope="col">
-                        @Html.Label("Cari Ad")
+                        @Html.Label("Ad")
 
                         @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(x => x.LastName, "" , new {@style = "color:red"})
+                        @Html.ValidationMessageFor(x => x.LastName, "", new { @style = "color:red" })
 
                     </th>
                     <th scope="col">
@@ -76,7 +77,5 @@
     </div>
 
 }
-
-
 
 
