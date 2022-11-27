@@ -2187,6 +2187,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\922956.jpg.jpg" />
+    <Content Include="Image\boot.png.png" />
+    <Content Include="Image\download.jpg.jpg" />
+    <Content Include="Image\wallpapersden.com_76457-3840x2160.jpg.jpg" />
+    <Content Include="Image\WhatsApp Image 2022-05-23 at 19.51.10.jpeg.jpeg" />
+    <Content Include="Image\WhatsApp Image 2022-05-23 at 19.51.58.jpeg.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
@@ -2897,10 +2903,10 @@
     <Content Include="Views\ConcubinePanel\Index.cshtml" />
     <Content Include="Views\ConcubinePanel\Orders.cshtml" />
     <Content Include="Views\ConcubinePanel\NewParola.cshtml" />
+    <Content Include="Views\istatistik\SwertAlert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

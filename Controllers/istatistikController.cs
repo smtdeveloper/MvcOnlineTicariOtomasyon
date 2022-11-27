@@ -13,6 +13,13 @@ namespace MvcOnlineTicariOtomasyon.Controllers
     {
         Context c = new Context();
 
+
+        public ActionResult SwertAlert() 
+        {
+            return View();
+        }
+
+
         // GET: istatistik
         public ActionResult Index()
         {
@@ -110,6 +117,8 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return PartialView(values);
 
         }
+
+        
 
     }
 }
