@@ -21,6 +21,39 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult MakeSale(int id) 
+        {
+            List<SelectListItem> employees = (from x in c.Employees.Where(x => x.IsDelete == false).ToList()
+                                              select new SelectListItem
+                                              {
+                                                  Text = x.EmployeeFirstName + " " + x.EmployeeLastName,
+                                                  Value = x.EmployeeID.ToString()
+                                              }).ToList();
+            ViewBag.VEmployees = employees;
+
+            var entity = c.Products.Find(id);
+            ViewBag.VProductID = entity.ProductID;
+            ViewBag.VProductSalePrice = entity.SalePrice;
+
+            var TodayDate = DateTime.Today.ToShortDateString();
+            ViewBag.VToday = TodayDate;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult MakeSale(SalesMove salesMove)
+        {
+           
+            c.salesMoves.Add(salesMove);
+            c.SaveChanges();
+
+            return RedirectToAction("Index" , "Sales");
+        }
+
+
+
         public ActionResult ProductListPdf()
         {
             var values = c.Products.Where(x => x.Status == true).ToList();

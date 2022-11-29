@@ -2904,6 +2904,7 @@
     <Content Include="Views\ConcubinePanel\Orders.cshtml" />
     <Content Include="Views\ConcubinePanel\NewParola.cshtml" />
     <Content Include="Views\istatistik\SwertAlert.cshtml" />
+    <Content Include="Views\Product\MakeSale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

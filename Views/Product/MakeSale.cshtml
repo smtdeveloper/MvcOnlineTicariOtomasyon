@@ -1,0 +1,128 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.SalesMove
+
+@{
+    ViewBag.Title = "MakeSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"> Satış Yap / @ViewBag.ProductName     </li>
+</ol>
+
+@using (Html.BeginForm("MakeSale", "Product", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.SalesMoveID, new { @class = "form-control" })
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+            
+            </tr>
+            <tr>
+                <th scope="col"><a href="/Product/Index" class="btn btn-outline-primary">Ürün Listesine Dön </a></th>
+                <th> </th>
+                <th scope="col">
+                    @Html.Label("Tarih")
+                    <input type="text" name="Date" value="@ViewBag.VToday"  class="form-control" readonly/>
+                </th>
+
+
+            </tr>
+            <tr>
+                <th scope="col">
+                    @Html.Label("Personel")
+
+                    @Html.DropDownListFor(x => x.EmployeeID, (List<SelectListItem>)ViewBag.VEmployees, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+                    @Html.Label("Cari")
+
+                    <input type="number" name="ConcubineID" value="" class="form-control" min="1"/>
+                </th>
+
+                <th scope="col">
+                    @Html.Label("Ürün")
+
+                    <input type="number" name="ProductID" value="@ViewBag.VProductID"  class="form-control" readonly />
+                </th>
+            </tr>
+            <tr>
+                <th scope="col">
+
+
+                    @Html.Label("Adet")
+                    <input type="number" id="txtCount" name="Count" value="0" class="form-control" min="1" onchange="TotalPriceFind()" />
+                </th>
+                <th scope="col">
+                    @Html.Label("Birim Fiyat")
+                    <input type="text" name="UnitPrice" id="txtUnitPrice"  value="@ViewBag.VProductSalePrice" class="form-control" onkeyup="TotalPriceFind()" />
+                </th>
+
+                <th scope="col">
+                    @Html.Label("Toplam Fiyat")
+                    <input type="number" name="TotalPrice" id="txtTotalPrice"  value="" class="form-control" readonly  />
+                </th>
+
+
+
+            </tr>
+
+            <tr>
+                <th></th>
+                <th></th>
+                <th scope="col"> <button class="btn btn-success">Satış Yap</button> </th>
+            </tr>
+
+
+
+
+            <tr>
+            </tr>
+        </thead>
+    </table>
+}
+
+
+<br />
+<hr />
+
+toplama örneği : 
+
+
+<input type="text" id="txt1" onkeyup="sum();" />
++
+<input type="text" id="txt2" onkeyup="sum();" />
+=
+<input type="text" id="txt3" readonly />
+
+<script>
+
+    function sum() {
+
+        var sayi1 = document.getElementById('txt1').value;
+        var sayi2 = document.getElementById('txt2').value;
+        var result = parseInt(sayi1) + parseInt(sayi2);
+
+        if (!isNaN(result)) {
+
+            document.getElementById('txt3').value = result;
+
+        }
+    }
+
+    function TotalPriceFind() {
+
+        var count = document.getElementById('txtCount').value;
+        var UnitPrice = document.getElementById('txtUnitPrice').value;
+        var result = parseInt(count) * parseInt(UnitPrice);
+
+        if (!isNaN(result)) {
+
+            document.getElementById('txtTotalPrice').value = result;
+
+        }
+
+    }
+
+</script>
+
