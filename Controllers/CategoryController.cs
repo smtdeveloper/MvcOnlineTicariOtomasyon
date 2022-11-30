@@ -7,7 +7,7 @@ using PagedList.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
-   
+    [Authorize]
     public class CategoryController : Controller
     {
         Context c = new Context();

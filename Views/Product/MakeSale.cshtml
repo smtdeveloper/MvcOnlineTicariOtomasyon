@@ -50,17 +50,27 @@
                 <th scope="col">
 
 
-                    @Html.Label("Adet")
+                     @Html.Label("Adet")
                     <input type="number" id="txtCount" name="Count" value="0" class="form-control" min="1" onchange="TotalPriceFind()" />
+
+
                 </th>
                 <th scope="col">
+
+
                     @Html.Label("Birim Fiyat")
                     <input type="text" name="UnitPrice" id="txtUnitPrice"  value="@ViewBag.VProductSalePrice" class="form-control" onkeyup="TotalPriceFind()" />
+
+
                 </th>
 
                 <th scope="col">
+
+
                     @Html.Label("Toplam Fiyat")
                     <input type="number" name="TotalPrice" id="txtTotalPrice"  value="" class="form-control" readonly  />
+
+
                 </th>
 
 
@@ -110,6 +120,8 @@ toplama örneği :
         }
     }
 
+
+
     function TotalPriceFind() {
 
         var count = document.getElementById('txtCount').value;
@@ -123,6 +135,9 @@ toplama örneği :
         }
 
     }
+
+
+
 
 </script>
 

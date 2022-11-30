@@ -1,0 +1,101 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities
+@model List<CargoDetay>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Kargolar    </li>
+</ol>
+
+<a href="/Cargo/CargoAdd" class="btn btn-primary p-3 m-4 text-right"> <h6> Yeni  Kargo </h6>  </a>
+
+
+@using (Html.BeginForm("Index", "Cargo", FormMethod.Get))
+{
+    <h5>
+        Kargo Kodu : @Html.TextBox("p") 
+        <input type="submit" value="Kargoyu Bul" class="btn btn-success" />
+    </h5>
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="card l-bg-cherry col-lg-5 m-4">
+            <div class="card-statistic-3 p-4">
+                <div class="mb-4 text-right">
+                    <h5 class="card-title mb-0"> Tarih :  @item.Tarih.ToShortDateString()    </h5>
+                </div>
+                <div class="card-icon card-icon-large">
+                    <div class="text-left"> <i class="fas fa-university"></i> Takip Kodu  :   @item.TakipKodu      </div>
+
+                </div>
+                <div class="mb-4">
+                    <h5 class="card-title mb-0"> Personel :  @item.Employee</h5>
+                </div>
+                <div class="">
+                    <h5 class="card-title mb-0"> Alıcı :  @item.Alici    </h5>
+                </div>
+                <div class="mb-4">
+                    <h5 class="card-title mb-0"> Acıklama :  @item.Aciklama    </h5>
+                </div>
+
+                <div class="row align-items-center mb-2 d-flex">
+                    <div class="col-8">
+                        <a href="/Cargo/CargoTakip/@item.TakipKodu" class="btn btn-outline-primary"> Kargo Takip </a>
+                    </div>
+                    <div class="col-4 text-right">
+
+
+
+                      
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function deleteBlog(id) {
+        console.log(id)
+        Swal.fire({
+            title: 'Emin misiniz !',
+            text: "Kategoriyi silmek istediğinize emin misiniz ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Evet, SİL',
+            cancelButtonText: "Vazgeç",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "post",
+                    url: "/Category/CategoryDelete/" + id,
+                    success: function (func) {
+                        Swal.fire(
+                            'SİLİNDİ ! ',
+                            'Mesaj başarılı bir şekilde silindi.',
+                            'success'
+                        )
+                        setTimeout('', 3000);
+                        location.reload();
+                    }
+                }
+                )
+            }
+        })
+    }
+</script>
+
+

@@ -1,0 +1,66 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.CargoDetay
+
+
+@{
+    ViewBag.Title = "CargoAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Kargo / Kargo Ekle      </li>
+</ol>
+
+<br />
+
+@using (Html.BeginForm("CargoAdd", "Cargo", FormMethod.Post))
+{
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col"><a href="/Cargo/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+            </tr>
+            <tr>
+                <th scope="col">
+                    @Html.Label("Takip Kodu")
+                    <input type="text" name="TakipKodu" value="@ViewBag.takipKod" class="form-control" readonly />
+                </th>
+
+            </tr>
+
+            <tr>
+                <th scope="col">
+                    @Html.Label("Personel")
+                    @Html.TextBoxFor(x => x.Employee, new { @class = "form-control" })
+                </th>
+
+                <th scope="col">
+                    @Html.Label("Alıcı")
+                    @Html.TextBoxFor(x => x.Alici, new { @class = "form-control" })
+                </th>
+
+
+
+            </tr>
+            <tr>
+                <th scope="col">
+                    @Html.Label("Acıklama")
+                    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+                </th>
+                <th scope="col">
+                    @Html.Label("Tarih")
+                    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+                </th>
+            </tr>
+            <tr>
+                @*<th></th>*@
+                <th scope="col"> <button class="btn btn-success"> Ekle </button> </th>
+            </tr>
+
+        </thead>
+    </table>
+
+
+
+
+}
+

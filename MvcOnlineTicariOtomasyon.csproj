@@ -135,6 +135,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CargoController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ConcubineController.cs" />
     <Compile Include="Controllers\ConcubinePanelController.cs" />
@@ -157,6 +158,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DB\Context.cs" />
     <Compile Include="Models\Entities\Admin.cs" />
+    <Compile Include="Models\Entities\CargoDetay.cs" />
+    <Compile Include="Models\Entities\CargoTakip.cs" />
     <Compile Include="Models\Entities\Category.cs" />
     <Compile Include="Models\Entities\Concubine.cs" />
     <Compile Include="Models\Entities\Department.cs" />
@@ -2189,9 +2192,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Image\922956.jpg.jpg" />
     <Content Include="Image\boot.png.png" />
-    <Content Include="Image\download.jpg.jpg" />
     <Content Include="Image\wallpapersden.com_76457-3840x2160.jpg.jpg" />
-    <Content Include="Image\WhatsApp Image 2022-05-23 at 19.51.10.jpeg.jpeg" />
     <Content Include="Image\WhatsApp Image 2022-05-23 at 19.51.58.jpeg.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2905,6 +2906,9 @@
     <Content Include="Views\ConcubinePanel\NewParola.cshtml" />
     <Content Include="Views\istatistik\SwertAlert.cshtml" />
     <Content Include="Views\Product\MakeSale.cshtml" />
+    <Content Include="Views\Cargo\Index.cshtml" />
+    <Content Include="Views\Cargo\CargoAdd.cshtml" />
+    <Content Include="Views\Cargo\CargoTakip.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

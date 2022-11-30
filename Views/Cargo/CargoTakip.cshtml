@@ -1,0 +1,38 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities
+@model List<CargoTakip>
+
+
+@{
+    ViewBag.Title = "CargoTakip";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Kargo Takip</li>
+</ol>
+
+<a href="/Cargo/Index" class="btn btn-primary m-4"> <h5> Listeye Dön </h5>  </a>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+
+        <div class="card l-bg-cherry col-lg-3 m-4">
+            <div class="card-statistic-3 p-4">
+
+                
+              
+                <div class="card-icon card-icon-large"><i class="fas fa-university"></i>   <b>  @item.TakipKodu</b>   </div>
+                <div class="mb-4">
+                    <h5 class="card-title mb-0">@item.Aciklama  </h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+
+                    <h5 class="card-title mb-0">@item.Date  </h5>
+
+                </div>
+
+            </div>
+        </div>
+    }
