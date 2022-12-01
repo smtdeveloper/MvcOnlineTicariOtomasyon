@@ -21,18 +21,34 @@
         <div class="card l-bg-cherry col-lg-3 m-4">
             <div class="card-statistic-3 p-4">
 
-                
-              
+
+
                 <div class="card-icon card-icon-large"><i class="fas fa-university"></i>   <b>  @item.TakipKodu</b>   </div>
                 <div class="mb-4">
                     <h5 class="card-title mb-0">@item.Aciklama  </h5>
                 </div>
                 <div class="row align-items-center mb-2 d-flex">
 
-                    <h5 class="card-title mb-0">@item.Date  </h5>
-
+                    <h5 class="card-title mb-0">@item.Date.ToShortDateString() </h5>
+                    
                 </div>
 
             </div>
         </div>
+
+
+        <br />
+
+        <div>
+
+           
+            <br />
+            @if (ViewBag.karekodiresim != null)
+            {
+                <img src="@ViewBag.karekodiresim" alt="Bir hata oluştu !" width="500" height="500" />
+            }
+
+        </div>
+
+
     }
