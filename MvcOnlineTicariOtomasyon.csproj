@@ -146,6 +146,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\GaleriController.cs" />
+    <Compile Include="Controllers\GrafikController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\istatistikController.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Models\Entities\SalesMove.cs" />
     <Compile Include="Models\Entities\Todo.cs" />
     <Compile Include="Models\GroupBy.cs" />
+    <Compile Include="Models\PoductStokModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2914,6 +2916,7 @@
     <Content Include="Views\Cargo\CargoAdd.cshtml" />
     <Content Include="Views\Cargo\CargoTakip.cshtml" />
     <Content Include="Views\QR\Index.cshtml" />
+    <Content Include="Views\Grafik\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
