@@ -3,6 +3,7 @@ using MvcOnlineTicariOtomasyon.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -73,8 +74,77 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult IncomingMessage()
+        {
+            var mail = User.Identity.Name;
+            var values = c.Messages.Where(x => x.AlıcıMail == mail).ToList();
 
-        
+            var gelenMailCount = c.Messages.Count(x => x.AlıcıMail == mail).ToString();
+            ViewBag.VGelenMailCount = gelenMailCount;
+
+            var gidenMailCount = c.Messages.Count(x => x.GöndereciMail == mail).ToString();
+            ViewBag.VGidenMailCount = gidenMailCount;
+
+            return View(values);
+
+        }
+
+        public ActionResult OutgoingMessage()
+        {
+            var mail = User.Identity.Name;
+            var values = c.Messages.Where(x => x.GöndereciMail == mail).ToList();
+
+            var gidenMailCount = c.Messages.Count(x => x.GöndereciMail == mail).ToString();
+            ViewBag.VGidenMailCount = gidenMailCount;
+
+            var gelenMailCount = c.Messages.Count(x => x.AlıcıMail == mail).ToString();
+            ViewBag.VGelenMailCount = gelenMailCount;
+            return View(values);
+
+        }
+
+        public ActionResult MesssageDetail(int id)
+        {
+            var values = c.Messages.Where(x => x.MessageID == id).ToList();
+
+            var mail = User.Identity.Name;
+            var gidenMailCount = c.Messages.Count(x => x.GöndereciMail == mail).ToString();
+            ViewBag.VGidenMailCount = gidenMailCount;
+
+            var gelenMailCount = c.Messages.Count(x => x.AlıcıMail == mail).ToString();
+            ViewBag.VGelenMailCount = gelenMailCount;
+
+            return View(values);
+        }
+
+        [HttpGet]
+        public ActionResult NewMessage()
+        {
+
+            var mail = User.Identity.Name;
+            var gidenMailCount = c.Messages.Count(x => x.GöndereciMail == mail).ToString();
+            ViewBag.VGidenMailCount = gidenMailCount;
+
+            var gelenMailCount = c.Messages.Count(x => x.AlıcıMail == mail).ToString();
+            ViewBag.VGelenMailCount = gelenMailCount;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NewMessage(Message message)
+        {
+            var mail = User.Identity.Name;
+
+            message.Date = DateTime.Parse(DateTime.Now.ToLongTimeString());
+            message.GöndereciMail = mail;
+
+            Thread.Sleep(2000);
+
+            c.Messages.Add(message);
+            c.SaveChanges();
+            return View();
+        }
 
     }
 }
