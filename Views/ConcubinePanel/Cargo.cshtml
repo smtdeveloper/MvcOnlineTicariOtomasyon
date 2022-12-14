@@ -1,0 +1,59 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities
+@model List<CargoDetay>
+
+
+@{
+    ViewBag.Title = "Cargo";
+    Layout = "~/Views/Shared/_ConcubineLayout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("Cargo", "ConcubinePanel", FormMethod.Get))
+{
+    <h5>
+        Kargo Kodu : @Html.TextBox("p")
+        <input type="submit" value="Kargoyu Bul" class="btn btn-success" />
+    </h5>
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="card l-bg-cherry col-lg-10 m-4">
+            <div class="card-statistic-3 p-4">
+                <div class="mb-4 text-right">
+                    <h5 class="card-title mb-0"> Tarih :  @item.Tarih.ToShortDateString()    </h5>
+                </div>
+                <div class="card-icon card-icon-large">
+                    <div class="text-left"> <i class="fas fa-university"></i> Takip Kodu  :   @item.TakipKodu      </div>
+
+                </div>
+                <div class="mb-4">
+                    <h5 class="card-title mb-0"> Personel :  @item.Employee</h5>
+                </div>
+                <div class="">
+                    <h5 class="card-title mb-0"> Alıcı :  @item.Alici    </h5>
+                </div>
+                <div class="mb-4">
+                    <h5 class="card-title mb-0"> Acıklama :  @item.Aciklama    </h5>
+                </div>
+
+                <div class="row align-items-center mb-2 d-flex">
+                    <div class="col-8">
+                        <a href="/ConcubinePanel/CargoDetail/@item.TakipKodu" class="btn btn-outline-primary"> Kargo Detay </a>
+                    </div>
+                    <div class="col-4 text-right">
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+

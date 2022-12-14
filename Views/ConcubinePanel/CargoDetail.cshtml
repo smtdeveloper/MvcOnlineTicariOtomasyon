@@ -1,0 +1,35 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities
+@model List<CargoTakip>
+
+@{
+    ViewBag.Title = "CargoDetail";
+    Layout = "~/Views/Shared/_ConcubineLayout.cshtml";
+}
+
+<div class="row">
+
+    @{ int sirano = 0; }
+
+    @foreach (var item in Model)
+    {
+        <div class="card l-bg-cherry col-lg-4 m-4">
+            <div class="card-statistic-3 p-4 m-2">
+
+                <div class="card-icon card-icon-large"><i class="fas fa-university"></i> Kargo Takip Kodu :  <b>  @item.TakipKodu</b>   </div>
+                <div class="mb-4">
+                    <h4  class="card-title mb-0" > @{sirano++; } @sirano :  @item.Aciklama  </h4>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+
+                    <h5 class="card-title mb-0">Tarih :  @item.Date.ToShortDateString() </h5>
+
+                </div>
+                @if (ViewBag.karekodiresim != null)
+                {
+                    <img src="@ViewBag.karekodiresim" alt="Bir hata oluştu !" width="500" height="500" />
+                }
+            </div>
+        </div>
+        }
+    </div>
+

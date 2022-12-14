@@ -1,11 +1,16 @@
 ﻿using MvcOnlineTicariOtomasyon.Models.DB;
 using MvcOnlineTicariOtomasyon.Models.Entities;
+using QRCoder;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
@@ -21,7 +26,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             //var email = (string)Session["CariEmail"];
             //var values = c.Concubines.FirstOrDefault(x => x.Mail == email);
             //ViewBag.mail = email;
-            
+
             var mail = User.Identity.Name;
             var concubineID = c.Concubines.Where(x => x.Mail == mail).Select(y => y.ConcubineID).FirstOrDefault();
 
@@ -33,7 +38,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
 
-        public ActionResult Orders() 
+        public ActionResult Orders()
         {
             var mail = User.Identity.Name;
             var concubineID = c.Concubines.Where(x => x.Mail == mail).Select(y => y.ConcubineID).FirstOrDefault();
@@ -51,7 +56,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewParola(Concubine concubine) 
+        public ActionResult NewParola(Concubine concubine)
         {
             if (!ModelState.IsValid)
             {
@@ -69,7 +74,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             c.SaveChanges();
 
-        
+
 
             return RedirectToAction("Index");
         }
@@ -145,6 +150,36 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
             return View();
         }
+
+        public ActionResult Cargo(string p)
+        {
+            var values = from x in c.cargoDetays select x;
+            values = values.Where(y => y.TakipKodu.Contains(p));
+            return View(values.ToList());
+
+        }
+
+        [HttpGet]
+        public ActionResult CargoDetail(string id)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                QRCodeGenerator CreateCode = new QRCodeGenerator();
+                QRCodeGenerator.QRCode karekod = CreateCode.CreateQrCode(id, QRCodeGenerator.ECCLevel.Q);
+
+                using (Bitmap resim = karekod.GetGraphic(10))
+                {
+                    resim.Save(ms, ImageFormat.Png);
+                    ViewBag.karekodiresim = "data:image/png;base64," + Convert.ToBase64String(ms.ToArray());
+                }
+            }
+
+            var values = c.cargoTakips.Where(x => x.TakipKodu == id).ToList();
+            return View(values);
+
+        }
+
+        
 
     }
 }
