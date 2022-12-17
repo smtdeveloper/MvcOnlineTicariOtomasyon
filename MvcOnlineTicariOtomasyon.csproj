@@ -145,6 +145,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GaleriController.cs" />
     <Compile Include="Controllers\GrafikController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -2341,6 +2342,7 @@
     <Content Include="thumber\js\swiper.min.js" />
     <Content Include="thumber\js\typed.js" />
     <Content Include="thumber\photos.html" />
+    <Content Include="Views\Error\Page404.css" />
     <Content Include="web2\css\bootstrap.css" />
     <Content Include="web2\css\clndr.css" />
     <Content Include="web2\css\jqvmap.css" />
@@ -2924,6 +2926,7 @@
     <Content Include="Views\ConcubinePanel\NewMessage.cshtml" />
     <Content Include="Views\ConcubinePanel\Cargo.cshtml" />
     <Content Include="Views\ConcubinePanel\CargoDetail.cshtml" />
+    <Content Include="Views\Error\PageError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

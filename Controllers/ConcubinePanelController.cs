@@ -33,6 +33,10 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var fullName = c.Concubines.Where(x => x.Mail == mail).Select(y => y.FirstName + " " + y.LastName).FirstOrDefault();
             ViewBag.VfullName = fullName;
 
+            var cariID = c.Concubines.Where(x => x.Mail == mail).Select(y => y.ConcubineID).FirstOrDefault();
+            var totalSalesCount = c.salesMoves.Where(x => x.ConcubineID == cariID).Count();
+            ViewBag.VTotalSalesCount = totalSalesCount;
+
             var values = c.Concubines.Where(x => x.ConcubineID == concubineID & x.IsDelete == false).ToList();
             return View(values);
 
@@ -156,7 +160,6 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var values = from x in c.cargoDetays select x;
             values = values.Where(y => y.TakipKodu.Contains(p));
             return View(values.ToList());
-
         }
 
         [HttpGet]
@@ -179,7 +182,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
 
-        
+
 
     }
 }
