@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
+using MvcOnlineTicariOtomasyon.Models;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
@@ -52,7 +53,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
 
-        
+
         public ActionResult CategoryDelete(int id)
         {
             var value = c.Categories.Find(id);
@@ -62,12 +63,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
 
-      
+
         public ActionResult CategoryUpdate(int id)
         {
             var value = c.Categories.Find(id);
 
-            return View("CategoryUpdate" , value);
+            return View("CategoryUpdate", value);
 
 
         }
@@ -104,6 +105,30 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Deneme()
+        {
+
+            CategoryFiltreModel model = new CategoryFiltreModel();
+            model.Categories = new SelectList(c.Categories, "CategoryID", "CategoryName");
+            model.Categories = new SelectList(c.Products, "ProductID", "ProductName");
+            return View(model);
+
+        }
+
+        public JsonResult UrunGetir(int p)
+        {
+            var urunlistesi = (from x in c.Products
+                               join y in c.Categories
+                               on x.Category.CategoryID equals y.CategoryID
+                               where x.Category.CategoryID == p
+                               select new
+                               {
+                                   Text = x.ProductName,
+                                   Value = x.ProductID.ToString()
+                               }).ToList();
+            return Json(urunlistesi, JsonRequestBehavior.AllowGet);
+
+        }
 
     }
 }

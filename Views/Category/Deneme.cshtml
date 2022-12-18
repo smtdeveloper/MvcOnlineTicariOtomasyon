@@ -1,0 +1,61 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.CategoryFiltreModel
+
+@{
+    ViewBag.Title = "Deneme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<div>
+    <h2>Kategoriler - Ürünler</h2>
+</div>
+<br />
+<div>
+    @Html.DropDownList("Drpkategori", Model.Categories, "---Kategori seciniz---", new
+       { @class = "form-control" })
+    <br />
+    @Html.DropDownList("Drpurun", Model.Products, " -- - Ürün Seciniz-- - ", new
+       { @class = "form-control" })
+</div>
+
+
+
+<script>
+
+    $(function () {
+
+        $('#DrpSehir').change(function () {
+
+            var id = $('#Drpkategori').val();
+
+            $.ajax({
+
+                url: '/Category/UrunGetir',
+
+                data: { p: id },
+
+                type: "POST",
+
+                dataType: "Json",
+
+                success: function (data) {
+
+                    console.log(data);
+
+                    $('#Drpurun').empty();
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        $('#Drpurun').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+
+                    }
+
+                }
+
+            });
+
+        });
+
+    });
+
+</script>
