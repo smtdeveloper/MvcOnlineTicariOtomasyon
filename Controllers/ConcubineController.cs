@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize(Roles = "A")]
     [Authorize]
     public class ConcubineController : Controller
     {

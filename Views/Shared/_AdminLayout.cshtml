@@ -58,6 +58,15 @@
                             Kategoriler
                         </a>
 
+                        @if (User.IsInRole("A"))
+                        {
+                            <a class="nav-link" href="/Category/Deneme">
+                                <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
+                                Kategorilere göre ürünler
+                            </a>
+                        }
+
+
                         <a class="nav-link" href="/Cargo/Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
                             Kargolar

@@ -8,6 +8,7 @@ using MvcOnlineTicariOtomasyon.Models;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize(Roles = "A")]
     [Authorize]
     public class CategoryController : Controller
     {
@@ -104,6 +105,8 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+      
 
         public ActionResult Deneme()
         {

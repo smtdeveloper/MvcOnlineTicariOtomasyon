@@ -14,6 +14,7 @@ using System.Web.Security;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    
     [Authorize]
     public class ConcubinePanelController : Controller
     {

@@ -180,6 +180,7 @@
     <Compile Include="Models\Entities\Todo.cs" />
     <Compile Include="Models\GroupBy.cs" />
     <Compile Include="Models\PoductStokModel.cs" />
+    <Compile Include="Models\Roles\AdminRoles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
