@@ -58,7 +58,7 @@
                             Kategoriler
                         </a>
 
-                        @if (User.IsInRole("A"))
+                        @if (User.IsInRole("C"))
                         {
                             <a class="nav-link" href="/Category/Deneme">
                                 <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
@@ -140,7 +140,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
                             Faturalar
                         </a>
-
+                        <a class="nav-link" href="/Invoice/DinamikInvoice">
+                            <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
+                            Dinamik Faturalar
+                        </a>
 
 
                         <a class="nav-link" href="/istatistik/Index">

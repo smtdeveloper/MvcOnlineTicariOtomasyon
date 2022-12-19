@@ -178,6 +178,7 @@
     <Compile Include="Models\Entities\Product.cs" />
     <Compile Include="Models\Entities\SalesMove.cs" />
     <Compile Include="Models\Entities\Todo.cs" />
+    <Compile Include="Models\FaturaKalemFiltreModel.cs" />
     <Compile Include="Models\GroupBy.cs" />
     <Compile Include="Models\PoductStokModel.cs" />
     <Compile Include="Models\Roles\AdminRoles.cs" />
@@ -2930,6 +2931,7 @@
     <Content Include="Views\ConcubinePanel\CargoDetail.cshtml" />
     <Content Include="Views\Error\PageError.cshtml" />
     <Content Include="Views\Category\Deneme.cshtml" />
+    <Content Include="Views\Invoice\DinamikInvoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

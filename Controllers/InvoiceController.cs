@@ -1,4 +1,5 @@
-﻿using MvcOnlineTicariOtomasyon.Models.DB;
+﻿using MvcOnlineTicariOtomasyon.Models;
+using MvcOnlineTicariOtomasyon.Models.DB;
 using MvcOnlineTicariOtomasyon.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -101,6 +102,50 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult DinamikInvoice() 
+        {
+            FaturaKalemFiltreModel model = new FaturaKalemFiltreModel();
+            model.Fatura = c.Invoices.ToList();
+            model.FaturaKalem = c.InvoicePens.ToList();
+
+            return View(model);
+
+        }
+
+
+        public ActionResult DinamikInvoiceSave(string InvoiceSerialNumber, string InvoiceSequenceNo, string TaxAdministration, 
+            string Submitter, string DeliveryArea, DateTime Date, string TotalPrice , InvoicePen[] invoicePens) 
+        {
+            Invoice ınvoice = new Invoice();
+            ınvoice.InvoiceSerialNumber = InvoiceSerialNumber;
+            ınvoice.InvoiceSequenceNo = InvoiceSequenceNo;
+            ınvoice.TaxAdministration = TaxAdministration;
+            ınvoice.Submitter = Submitter;
+            ınvoice.DeliveryArea = DeliveryArea;
+            ınvoice.Date = Date;
+            ınvoice.TotalPrice = decimal.Parse(TotalPrice);
+
+            c.Invoices.Add(ınvoice);
+
+            foreach (var item in invoicePens)
+            {
+                InvoicePen pen = new InvoicePen();
+                pen.Description = item.Description;
+                pen.UnitPrice = item.UnitPrice;
+                pen.InvoiceID = item.InvoiceID;
+                pen.Count = item.Count;
+                pen.TotalPrice = item.TotalPrice;
+                c.InvoicePens.Add(pen);
+
+            }
+
+            c.SaveChanges();
+
+            return Json("İşlem Başarılı, Eklendi", JsonRequestBehavior.AllowGet);
+
+
         }
 
     }
